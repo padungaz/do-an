@@ -14,12 +14,12 @@ import "./style.css";
 
 const { Header, Sider, Content } = Layout;
 
-const LayoutAdmin = () => {
+const LayoutAdmin = ({ admin }) => {
   const [collapsed, setCollapsed] = useState(false);
   return (
     <Layout>
       <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="logo" />
+        <div className="logo-layout-admin" />
         <Menu
           theme="dark"
           mode="inline"
@@ -66,6 +66,10 @@ const LayoutAdmin = () => {
             minHeight: 280,
           }}
         >
+          {admin && <div className="the-div"></div>}
+          <div className="the-div"></div>
+          <div className="the-div"></div>
+          <div className="the-div"></div>
           <Products />
         </Content>
       </Layout>
