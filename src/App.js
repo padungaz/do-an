@@ -3,6 +3,8 @@ import { Provider } from "react-redux";
 import { ThemeProvider } from "styled-components";
 
 // import LayoutAdmin from "./components/LayoutAdmin";
+import CustomerManagement from "./components/CustomerManagement";
+// import PaymentMethods from "./components/PaymentMethods";
 import AddTour from "./components/AddTour";
 import GlobalStyle from "./styles/globalStyle";
 import store from "./store";
@@ -14,7 +16,9 @@ function App() {
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         {/* <LayoutAdmin /> */}
-        <AddTour />
+        <CustomerManagement />
+        {/* <PaymentMethods /> */}
+        {/* <AddTour /> */}
         <GlobalStyle />
       </ThemeProvider>
     </Provider>

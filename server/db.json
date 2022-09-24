@@ -253,6 +253,7 @@
       "name": "Đồng Tháp"
     }
   ],
+  "payment": [],
   "tour": [
     {
       "price": {
@@ -270,16 +271,9 @@
         "province": "Zhejiang",
         "street": "dsadsfsdfds"
       },
-      "vehicle": [
-        "oto",
-        "xe-buyt"
-      ],
+      "vehicle": ["oto", "xe-buyt"],
       "number": 6,
-      "service": [
-        "A",
-        "E",
-        "C"
-      ],
+      "service": ["A", "E", "C"],
       "details": "dasfsdfsdfdsfdsffs\nsfsdf\nsdf\nsdf\nsd\nfsd\nfs\ndf\nsdf",
       "id": 1
     },
@@ -299,16 +293,9 @@
         "province": "Zhejiang",
         "street": "dsadsfsdfds"
       },
-      "vehicle": [
-        "oto",
-        "xe-buyt"
-      ],
+      "vehicle": ["oto", "xe-buyt"],
       "number": 6,
-      "service": [
-        "A",
-        "E",
-        "C"
-      ],
+      "service": ["A", "E", "C"],
       "details": "dasfsdfsdfdsfdsffs\nsfsdf\nsdf\nsdf\nsd\nfsd\nfs\ndf\nsdf",
       "id": 2
     },
@@ -328,16 +315,9 @@
         "province": "Jiangsu",
         "street": "dsadsfsdfds"
       },
-      "vehicle": [
-        "oto",
-        "xe-buyt"
-      ],
+      "vehicle": ["oto", "xe-buyt"],
       "number": 6,
-      "service": [
-        "A",
-        "E",
-        "C"
-      ],
+      "service": ["A", "E", "C"],
       "details": "dasfsdfsdfdsfdsffs\nsfsdf\nsdf\nsdf\nsd\nfsd\nfs\ndf\nsdf",
       "id": 3
     }

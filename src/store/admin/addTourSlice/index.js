@@ -20,7 +20,7 @@ export const addTour = createAsyncThunk(
 
 const addTourSlice = createSlice({
     name: 'tour',
-    initialState: { tour: [] },
+    initialState: { tours: [] },
     reducers: {},
 
     extraReducers(builder) {
@@ -30,7 +30,7 @@ const addTourSlice = createSlice({
             })
             .addCase(addTour.fulfilled, (state, action) => {
                 console.log("addTour.fulfilled", { state, action });
-                state.todos = action.payload;
+                state.tours = action.payload;
             })
             .addCase(addTour.rejected, (state, action) => {
                 console.log("addTour.rejected", { state, action });
