@@ -18,10 +18,23 @@
 
 .site-layout .site-layout-background {
   background: #fff;
+  display: flex;
+  justify-content: space-between;
+  /* padding-right: 10px; */
 }
 
 .the-div {
   width: 100%;
   height: 30px;
   border: 2px solid red;
+}
+
+.aaaaaaa {
+  padding-right: 10px;
+}
+
+.cccc {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }

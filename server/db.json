@@ -1,258 +1,4 @@
 {
-  "address": [
-    {
-      "id": 294,
-      "name": "Hồ Chí Minh"
-    },
-    {
-      "id": 297,
-      "name": "Hà Nội"
-    },
-    {
-      "id": 291,
-      "name": "Đà Nẵng"
-    },
-    {
-      "id": 278,
-      "name": "An Giang"
-    },
-    {
-      "id": 280,
-      "name": "Bà Rịa - Vũng Tàu"
-    },
-    {
-      "id": 282,
-      "name": "Bắc Giang"
-    },
-    {
-      "id": 281,
-      "name": "Bắc Kạn"
-    },
-    {
-      "id": 279,
-      "name": "Bạc Liêu"
-    },
-    {
-      "id": 283,
-      "name": "Bắc Ninh"
-    },
-    {
-      "id": 284,
-      "name": "Bến Tre"
-    },
-    {
-      "id": 285,
-      "name": "Bình Dương"
-    },
-    {
-      "id": 286,
-      "name": "Bình Phước"
-    },
-    {
-      "id": 287,
-      "name": "Bình Thuận"
-    },
-    {
-      "id": 316,
-      "name": "Bình Định"
-    },
-    {
-      "id": 289,
-      "name": "Cà Mau"
-    },
-    {
-      "id": 290,
-      "name": "Cần Thơ"
-    },
-    {
-      "id": 288,
-      "name": "Cao Bằng"
-    },
-    {
-      "id": 293,
-      "name": "Gia Lai"
-    },
-    {
-      "id": 295,
-      "name": "Hà Giang"
-    },
-    {
-      "id": 296,
-      "name": "Hà Nam"
-    },
-    {
-      "id": 299,
-      "name": "Hà Tĩnh"
-    },
-    {
-      "id": 300,
-      "name": "Hải Dương"
-    },
-    {
-      "id": 301,
-      "name": "Hải Phòng"
-    },
-    {
-      "id": 319,
-      "name": "Hậu Giang"
-    },
-    {
-      "id": 302,
-      "name": "Hoà Bình"
-    },
-    {
-      "id": 320,
-      "name": "Hưng Yên"
-    },
-    {
-      "id": 321,
-      "name": "Khánh Hòa"
-    },
-    {
-      "id": 322,
-      "name": "Kiên Giang"
-    },
-    {
-      "id": 323,
-      "name": "Kon Tum"
-    },
-    {
-      "id": 304,
-      "name": "Lai Châu"
-    },
-    {
-      "id": 306,
-      "name": "Lâm Đồng"
-    },
-    {
-      "id": 305,
-      "name": "Lạng Sơn"
-    },
-    {
-      "id": 324,
-      "name": "Lào Cai"
-    },
-    {
-      "id": 325,
-      "name": "Long An"
-    },
-    {
-      "id": 326,
-      "name": "Nam Định"
-    },
-    {
-      "id": 327,
-      "name": "Nghệ An"
-    },
-    {
-      "id": 307,
-      "name": "Ninh Bình"
-    },
-    {
-      "id": 328,
-      "name": "Ninh Thuận"
-    },
-    {
-      "id": 329,
-      "name": "Phú Thọ"
-    },
-    {
-      "id": 308,
-      "name": "Phú Yên"
-    },
-    {
-      "id": 309,
-      "name": "Quảng Bình"
-    },
-    {
-      "id": 310,
-      "name": "Quảng Nam"
-    },
-    {
-      "id": 311,
-      "name": "Quảng Ngãi"
-    },
-    {
-      "id": 330,
-      "name": "Quảng Ninh"
-    },
-    {
-      "id": 312,
-      "name": "Quảng Trị"
-    },
-    {
-      "id": 313,
-      "name": "Sóc Trăng"
-    },
-    {
-      "id": 331,
-      "name": "Sơn La"
-    },
-    {
-      "id": 332,
-      "name": "Tây Ninh"
-    },
-    {
-      "id": 333,
-      "name": "Thái Bình"
-    },
-    {
-      "id": 334,
-      "name": "Thái Nguyên"
-    },
-    {
-      "id": 335,
-      "name": "Thanh Hóa"
-    },
-    {
-      "id": 303,
-      "name": "Thừa Thiên Huế"
-    },
-    {
-      "id": 336,
-      "name": "Tiền Giang"
-    },
-    {
-      "id": 314,
-      "name": "Trà Vinh"
-    },
-    {
-      "id": 315,
-      "name": "Tuyên Quang"
-    },
-    {
-      "id": 337,
-      "name": "Vĩnh Long"
-    },
-    {
-      "id": 338,
-      "name": "Vĩnh Phúc"
-    },
-    {
-      "id": 339,
-      "name": "Yên Bái"
-    },
-    {
-      "id": 292,
-      "name": "Đắk Lắk"
-    },
-    {
-      "id": 340,
-      "name": "Đắk Nông"
-    },
-    {
-      "id": 341,
-      "name": "Điện Biên"
-    },
-    {
-      "id": 317,
-      "name": "Đồng Nai"
-    },
-    {
-      "id": 318,
-      "name": "Đồng Tháp"
-    }
-  ],
   "payment": [],
   "tour": [
     {
@@ -275,6 +21,8 @@
       "number": 6,
       "service": ["A", "E", "C"],
       "details": "dasfsdfsdfdsfdsffs\nsfsdf\nsdf\nsdf\nsd\nfsd\nfs\ndf\nsdf",
+      "numberpeople": 0,
+      "numberOder": 4,
       "id": 1
     },
     {
@@ -297,6 +45,8 @@
       "number": 6,
       "service": ["A", "E", "C"],
       "details": "dasfsdfsdfdsfdsffs\nsfsdf\nsdf\nsdf\nsd\nfsd\nfs\ndf\nsdf",
+      "numberOder": 4,
+      "numberpeople": 4,
       "id": 2
     },
     {
@@ -319,7 +69,385 @@
       "number": 6,
       "service": ["A", "E", "C"],
       "details": "dasfsdfsdfdsfdsffs\nsfsdf\nsdf\nsdf\nsd\nfsd\nfs\ndf\nsdf",
+      "numberOder": 4,
+      "numberpeople": 0,
       "id": 3
+    },
+    {
+      "price": {
+        "gia1": 435345,
+        "gia2": 345345,
+        "gia3": 345
+      },
+      "from": "Hà Nội",
+      "range-picker": {
+        "startDate": "2022-09-29",
+        "endDate": "2022-10-21"
+      },
+      "nameTour": "sads",
+      "address": {
+        "province": "Jiangsu",
+        "street": "gfghfg"
+      },
+      "vehicle": ["oto"],
+      "number": 4,
+      "service": ["A", "E", "F"],
+      "details": "fdfsfsdfsdf",
+      "numberOder": 2,
+      "numberpeople": 3,
+      "id": 4
+    },
+    {
+      "price": {
+        "gia1": 435345,
+        "gia2": 345345,
+        "gia3": 345
+      },
+      "from": "Hà Nội",
+      "range-picker": {
+        "startDate": "2022-09-29",
+        "endDate": "2022-10-21"
+      },
+      "nameTour": "dsfdgfdgfdgd",
+      "address": {
+        "province": "Jiangsu",
+        "street": "gfghfg"
+      },
+      "vehicle": ["oto"],
+      "number": 4,
+      "service": ["A", "E", "F"],
+      "details": "fdfsfsdfsdf",
+      "numberOder": 5,
+      "numberpeople": 0,
+      "id": 5
+    },
+    {
+      "price": {
+        "gia1": 2222,
+        "gia2": 2222222,
+        "gia3": 222
+      },
+      "from": "Hà Nội",
+      "range-picker": {
+        "startDate": "2022-10-21",
+        "endDate": "2022-11-15"
+      },
+      "nameTour": "1111",
+      "address": {
+        "province": "Thê-gioi",
+        "street": "fsdfdsfs"
+      },
+      "vehicle": ["xe-buyt"],
+      "number": 8,
+      "service": ["A"],
+      "details": "sdas/fdasf/fasfsaf",
+      "promotion": 50,
+      "typeTour": ["E", "C"],
+      "isNone": false,
+      "numberOder": 5,
+      "numberpeople": 6,
+      "id": 6
+    },
+    {
+      "price": {
+        "gia1": 2222,
+        "gia2": 2222222,
+        "gia3": 222
+      },
+      "from": "Hà Nội",
+      "range-picker": {
+        "startDate": "2022-10-21",
+        "endDate": "2022-11-15"
+      },
+      "nameTour": "1111",
+      "address": {
+        "province": "Thê-gioi",
+        "street": "fsdfdsfs"
+      },
+      "vehicle": ["xe-buyt"],
+      "number": 8,
+      "service": ["A"],
+      "details": "sdas/fdasf/fasfsaf",
+      "promotion": 50,
+      "typeTour": ["E", "C"],
+      "isNone": false,
+      "numberOder": 0,
+      "numberpeople": 0,
+      "id": 7
+    },
+    {
+      "price": {
+        "gia1": 4,
+        "gia2": 3533535,
+        "gia3": 22424
+      },
+      "from": "Hà Nội",
+      "range-picker": {
+        "startDate": "2022-11-09",
+        "endDate": "2022-11-25"
+      },
+      "nameTour": "ve you",
+      "address": {
+        "province": "Thê-gioi",
+        "street": "2535235325"
+      },
+      "vehicle": ["oto", "xe-buyt"],
+      "number": 4,
+      "service": ["B"],
+      "details": "fdsdf",
+      "promotion": 34,
+      "typeTour": ["E"],
+      "isNone": false,
+      "isDisable": false,
+      "numberOder": 2,
+      "numberpeople": 5,
+      "id": 8
+    },
+    {
+      "price": {
+        "gia1": 222222,
+        "gia2": 3333,
+        "gia3": 333
+      },
+      "from": "Hà Nội",
+      "range-picker": {
+        "startDate": "2022-10-27",
+        "endDate": "2022-11-15"
+      },
+      "nameTour": "ve you",
+      "address": {
+        "province": "Trong-nươc",
+        "street": "432"
+      },
+      "vehicle": ["oto", "xe-buyt"],
+      "number": 3,
+      "service": ["B"],
+      "details": "dsf",
+      "promotion": 5,
+      "isNone": false,
+      "isDisable": false,
+      "numberOder": 0,
+      "numberpeople": 0,
+      "id": 9
+    },
+    {
+      "price": {
+        "gia1": 4
+      },
+      "from": "Hà Nội",
+      "range-picker": {
+        "startDate": "2022-10-28",
+        "endDate": "2022-11-16"
+      },
+      "nameTour": "ve you",
+      "address": {
+        "province": "Trong-nươc",
+        "street": "2535235325"
+      },
+      "vehicle": ["oto"],
+      "service": ["C"],
+      "details": "sdfsf",
+      "isNone": false,
+      "isDisable": false,
+      "numberOder": 4,
+      "numberpeople": 5,
+      "id": 10
+    },
+    {
+      "price": {
+        "gia1": 5435
+      },
+      "from": "Hà Nội",
+      "range-picker": {
+        "startDate": "2022-10-20",
+        "endDate": "2022-11-17"
+      },
+      "nameTour": "ve you",
+      "address": {
+        "province": "Trong-nươc",
+        "street": "eretret"
+      },
+      "vehicle": ["xe-buyt"],
+      "service": ["B"],
+      "details": "sfsfds",
+      "isNone": false,
+      "isDisable": false,
+      "numberOder": 0,
+      "numberpeople": 4,
+      "id": 11
+    },
+    {
+      "price": {
+        "gia1": 44444
+      },
+      "from": "Hà Nội",
+      "range-picker": {
+        "startDate": "2022-10-29",
+        "endDate": "2022-11-16"
+      },
+      "nameTour": "ve you",
+      "address": {
+        "province": "Trong-nươc",
+        "street": "432"
+      },
+      "vehicle": ["xe-buyt"],
+      "details": "ssss",
+      "isNone": false,
+      "isDisable": false,
+      "numberOder": 0,
+      "numberpeople": 0,
+      "id": 12
+    },
+    {
+      "price": {
+        "gia1": 654
+      },
+      "from": "Hà Nội",
+      "range-picker": {
+        "startDate": "2022-11-07",
+        "endDate": "2022-11-15"
+      },
+      "nameTour": "ve you",
+      "address": {
+        "province": "Trong-nươc",
+        "street": "fsdfdsfs"
+      },
+      "vehicle": ["máy bay"],
+      "details": "fdfsd",
+      "isNone": false,
+      "isDisable": false,
+      "numberOder": 0,
+      "numberpeople": 0,
+      "id": 13
+    },
+    {
+      "price": {
+        "gia1": 654
+      },
+      "from": "Hà Nội",
+      "range-picker": {
+        "startDate": "2022-11-07",
+        "endDate": "2022-11-15"
+      },
+      "nameTour": "ve you",
+      "address": {
+        "province": "Trong-nươc",
+        "street": "fsdfdsfs"
+      },
+      "vehicle": ["máy bay"],
+      "details": "fdfsd",
+      "isNone": false,
+      "isDisable": false,
+      "numberOder": 1,
+      "numberpeople": 0,
+      "id": 14
+    },
+    {
+      "price": {
+        "gia1": 4
+      },
+      "from": "Hà Nội",
+      "range-picker": {
+        "startDate": "2022-10-29",
+        "endDate": "2022-11-23"
+      },
+      "nameTour": "ve you",
+      "address": {
+        "province": "Trong-nươc",
+        "street": "fsdfdsfs"
+      },
+      "vehicle": ["oto"],
+      "number": 4,
+      "service": ["B"],
+      "details": "ffdgs",
+      "promotion": 4,
+      "typeTour": ["E"],
+      "isNone": false,
+      "isDisable": false,
+      "numberOder": 0,
+      "numberpeople": 0,
+      "id": 15
+    },
+    {
+      "price": {
+        "gia1": 2
+      },
+      "from": "Hà Nội",
+      "range-picker": {
+        "startDate": "2022-10-19",
+        "endDate": "2022-11-20"
+      },
+      "nameTour": "ve you",
+      "address": {
+        "province": "Trong-nươc",
+        "street": "fsdfdsfs"
+      },
+      "vehicle": ["xe-buyt"],
+      "details": "dd",
+      "isNone": false,
+      "isDisable": false,
+      "numberOder": 2,
+      "numberpeople": 0,
+      "id": 16
+    },
+    {
+      "price": {
+        "gia1": 3
+      },
+      "from": "Hà Nội",
+      "range-picker": {
+        "startDate": "2022-10-22",
+        "endDate": "2022-11-09"
+      },
+      "nameTour": "ve youdsfsdfsf",
+      "address": {
+        "province": "Trong-nươc",
+        "street": "fsdfdsfs"
+      },
+      "vehicle": ["xe-buyt"],
+      "service": ["B", "E"],
+      "details": "fdfsf",
+      "isNone": false,
+      "isDisable": false,
+      "numberOder": 0,
+      "numberpeople": 0,
+      "id": 17
+    },
+    {
+      "price": {
+        "gia1": 2
+      },
+      "from": "Hà Nội",
+      "range-picker": {
+        "startDate": "2022-10-20",
+        "endDate": "2022-11-21"
+      },
+      "nameTour": "ve youfdsdsf",
+      "address": {
+        "province": "Thê-gioi",
+        "street": "dsadasd"
+      },
+      "vehicle": ["xe-buyt"],
+      "number": 4,
+      "service": ["A"],
+      "details": "32432",
+      "promotion": 4,
+      "typeTour": ["A"],
+      "quantity": 3,
+      "isNone": false,
+      "isDisable": false,
+      "rating": 0,
+      "userNumberRating": 0,
+      "numberOder": 0,
+      "numberpeople": 0,
+      "id": 18
     }
-  ]
+  ],
+  "oder": [
+    {
+      "nameTour": {},
+      "id": 1
+    }
+  ],
+  "client": [{}]
 }

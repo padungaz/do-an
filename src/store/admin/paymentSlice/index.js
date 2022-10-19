@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { URL_PAYMENT } from "../../constants";
+import { URL_PAYMENT } from "../../../constants";
 
 export const paymentEdit = createAsyncThunk(
     "payment/paymentEdit",

@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import "antd/dist/antd.css";
+// import "antd/dist/antd.css";
 import { SearchOutlined } from "@ant-design/icons";
 import { Button, Input, Space, Table } from "antd";
 

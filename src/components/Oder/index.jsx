@@ -1,83 +1,133 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 // import "antd/dist/antd.css";
 import { SearchOutlined } from "@ant-design/icons";
 import { Button, Input, Space, Table } from "antd";
 
 import Highlighter from "react-highlight-words";
 import "./style.css";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchTour } from "../../store/admin/tourSlice";
+import { generatePath, useNavigate } from "react-router-dom";
+import { ROUTES_ADMIN } from "../../routes/constants";
 
-const data = [
-  {
-    key: "1",
-    name: "John Brown",
-    age: 32,
-    address: "New York No. 1 Lake Park",
-  },
-  {
-    key: "2",
-    name: "Joe Black",
-    age: 42,
-    address: "London No. 1 Lake Park",
-  },
-  {
-    key: "3",
-    name: "Jim Green",
-    age: 32,
-    address: "Sidney No. 1 Lake Park",
-  },
-  {
-    key: "4",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    key: "5",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    key: "6",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    key: "7",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    key: "8",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    key: "9",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    key: "",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-];
+// const data = [
+//   {
+//     key: "1",
+//     name: "John Brown",
+//     age: 32,
+//     address: "New York No. 1 Lake Park",
+//   },
+//   {
+//     key: "2",
+//     name: "Joe Black",
+//     age: 42,
+//     address: "London No. 1 Lake Park",
+//   },
+//   {
+//     key: "3",
+//     name: "Jim Green",
+//     age: 32,
+//     address: "Sidney No. 1 Lake Park",
+//   },
+//   {
+//     key: "4",
+//     name: "Jim Red",
+//     age: 32,
+//     address: "London No. 2 Lake Park",
+//   },
+//   {
+//     key: "5",
+//     name: "Jim Red",
+//     age: 32,
+//     address: "London No. 2 Lake Park",
+//   },
+//   {
+//     key: "6",
+//     name: "Jim Red",
+//     age: 32,
+//     address: "London No. 2 Lake Park",
+//   },
+//   {
+//     key: "7",
+//     name: "Jim Red",
+//     age: 32,
+//     address: "London No. 2 Lake Park",
+//   },
+//   {
+//     key: "8",
+//     name: "Jim Red",
+//     age: 32,
+//     address: "London No. 2 Lake Park",
+//   },
+//   {
+//     key: "9",
+//     name: "Jim Red",
+//     age: 32,
+//     address: "London No. 2 Lake Park",
+//   },
+//   {
+//     key: "",
+//     name: "Jim Red",
+//     age: 32,
+//     address: "London No. 2 Lake Park",
+//   },
+// ];
 
-const CustomerManagement = () => {
+const Oder = () => {
   const [searchText, setSearchText] = useState("");
   const [searchedColumn, setSearchedColumn] = useState("");
   const searchInput = useRef(null);
   const [show, setShow] = useState("none");
   const [value, setValue] = useState("");
 
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchTour());
+  }, [dispatch]);
+
+  const tourArray = useSelector((state) => state.tourReducer.tours);
+
+  const allNameTour = tourArray?.map((item) => item?.nameTour);
+
+  const nameTours = allNameTour.reduce((acc, el) => {
+    if (acc.indexOf(el) === -1) {
+      acc.push(el);
+    }
+    return acc;
+  }, []);
+
+  const tourListByName = nameTours?.map((item) =>
+    tourArray.filter((el) => el.nameTour === item)
+  );
+
+  const data = tourListByName.map((item, i) => ({
+    nameTour: nameTours[i],
+    numberOder: item?.map((el) => el?.numberOder)
+      ? item?.map((el) => el?.numberOder)?.reduce((acc, e) => acc + e)
+      : 0,
+    numberpeople: item?.map((el) => el?.numberpeople)
+      ? item?.map((el) => el?.numberpeople)?.reduce((acc, e) => acc + e)
+      : 0,
+  }));
+
+  console.log("data", data);
+  // console.log("tourListByName", tourListByName);
+  // console.log("nameTours", nameTours);
+  // console.log("todoArray", tourArray);
+  // console.log("allNameTour", allNameTour);
+
+  const handleDetail = (nameTour) => {
+    navigate(
+      generatePath(ROUTES_ADMIN.TOUR_DETAIL, {
+        name: nameTour,
+      })
+    );
+  };
   const arr = (record) => {
-    console.log("aaaa", record);
+    // console.log("aaaa", record);
     setShow("");
     setValue(record);
   };
@@ -187,26 +237,28 @@ const CustomerManagement = () => {
 
   const columns = [
     {
-      title: "Name",
-      dataIndex: "name",
-      key: "name",
+      title: "NameTour",
+      dataIndex: "nameTour",
+      key: "nameTour",
       width: "30%",
-      ...getColumnSearchProps("name"),
+
+      ...getColumnSearchProps("nameTour"),
     },
     {
-      title: "Age",
-      dataIndex: "age",
-      key: "age",
+      title: "Số lượng tour được đặt",
+      dataIndex: "numberOder",
+      key: "numberOder",
       width: "20%",
-      ...getColumnSearchProps("age"),
+      ...getColumnSearchProps("numberOder"),
     },
     {
-      title: "Address",
-      dataIndex: "address",
-      key: "address",
-      ...getColumnSearchProps("address"),
-      sorter: (a, b) => a.address.length - b.address.length,
-      sortDirections: ["descend", "ascend"],
+      title: "Số lượng khách",
+      dataIndex: "numberpeople",
+      key: "numberpeople",
+      width: "20%",
+      ...getColumnSearchProps("numberpeople"),
+      // sorter: (a, b) => a.address.length - b.address.length,
+      // sortDirections: ["descend", "ascend"],
     },
   ];
   return (
@@ -226,7 +278,7 @@ const CustomerManagement = () => {
           }}
           style={{ width: "68%" }}
         />
-        <div
+        {/* <div
           style={{
             width: "30%",
             height: "inherit",
@@ -234,7 +286,7 @@ const CustomerManagement = () => {
           }}
         >
           sdfghjkl
-        </div>
+        </div> */}
       </div>
 
       <div
@@ -243,11 +295,17 @@ const CustomerManagement = () => {
           display: `${show}`,
         }}
       >
-        <h1>{value.name}</h1>
+        <h1>{value.nameTour}</h1>
         <button onClick={() => setShow("none")}>x</button>
+        <div>
+          <button onClick={() => handleDetail(value.nameTour)}>
+            {" "}
+            details{" "}
+          </button>
+        </div>
       </div>
     </>
   );
 };
 
-export default CustomerManagement;
+export default Oder;

@@ -1,100 +1,92 @@
 import {
-  LaptopOutlined,
-  NotificationOutlined,
-  UserOutlined,
+  // LaptopOutlined,
+  // NotificationOutlined,
+  // UserOutlined,
+  AppstoreOutlined,
+  MailOutlined,
+  SettingOutlined,
 } from "@ant-design/icons";
-import { Breadcrumb, Layout, Menu } from "antd";
+import { Layout, Menu } from "antd";
 import React from "react";
-
-import Tour from "../Tour";
+// import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { ROUTES_ADMIN } from "../../routes/constants";
+import AddTour from "../AddTour";
+import CustomerManagement from "../CustomerManagement";
+import Oder from "../Oder";
 
 import "./style.css";
 
-const { Header, Content, Footer, Sider } = Layout;
-const items1 = ["1", "2", "3"].map((key) => ({
-  key,
-  label: `nav ${key}`,
-}));
-const items2 = [UserOutlined, LaptopOutlined, NotificationOutlined].map(
-  (icon, index) => {
-    const key = String(index + 1);
-    return {
-      key: `sub${key}`,
-      icon: React.createElement(icon),
-      label: `subnav ${key}`,
-      children: new Array(4).fill(null).map((_, j) => {
-        const subKey = index * 4 + j + 1;
-        return {
-          key: subKey,
-          label: `option${subKey}`,
-        };
-      }),
-    };
-  }
-);
+const { Header, Content } = Layout;
+// const items1 = ["1", "2", "3"].map((key) => ({
+//   key,
+//   label: `nav ${key}`,
+// }));
+
+const items = [
+  {
+    label: "Quản lý tour",
+    key: "tour",
+    icon: <MailOutlined />,
+  },
+  {
+    label: "Quản lý đơn hàng",
+    key: "oder",
+    icon: <AppstoreOutlined />,
+  },
+  {
+    label: "Thêm Tour",
+    key: "add",
+    icon: <SettingOutlined />,
+  },
+];
 
 function Products() {
+  const navigate = useNavigate();
+  const location = useLocation().pathname.split("/")[3];
+
+  const arr = (e) => {
+    // console.log("click ", e.key);
+    navigate(`${ROUTES_ADMIN.PAGE_MANAGEMENT}/${e.key}`);
+  };
+
   return (
-    <Layout>
-      <Header className="header">
-        <div className="logo" />
-        <Menu
-          theme="dark"
-          mode="horizontal"
-          defaultSelectedKeys={["2"]}
-          items={items1}
-        />
-      </Header>
-      <Content
+    <>
+      {" "}
+      <Layout
         style={{
-          padding: "0 50px",
+          position: "relative",
         }}
       >
-        <Breadcrumb
+        {/* <Header className="header"> */}
+        <Menu
+          onClick={arr}
+          selectedKeys={[location]}
+          mode="horizontal"
+          items={items}
+          defaultSelectedKeys={["tour"]}
+        />
+        {/* </Header> */}
+        <Content
           style={{
-            margin: "16px 0",
+            padding: "10px 0",
           }}
         >
-          <Breadcrumb.Item>Home</Breadcrumb.Item>
-          <Breadcrumb.Item>List</Breadcrumb.Item>
-          <Breadcrumb.Item>App</Breadcrumb.Item>
-        </Breadcrumb>
-        <Layout
-          className="site-layout-background"
-          style={{
-            padding: "24px 0",
-          }}
-        >
-          <Sider className="site-layout-background" width={200}>
-            <Menu
-              mode="inline"
-              defaultSelectedKeys={["1"]}
-              defaultOpenKeys={["sub1"]}
-              style={{
-                height: "100%",
-              }}
-              items={items2}
-            />
-          </Sider>
-          <Content
+          <Layout
+            className="site-layout-background"
             style={{
-              padding: "0 24px",
-              minHeight: 280,
+              padding: "24px 0",
             }}
           >
-            <div className="the-div"></div>
-            <Tour />
-          </Content>
-        </Layout>
-      </Content>
-      <Footer
-        style={{
-          textAlign: "center",
-        }}
-      >
-        Ant Design ©2018 Created by Ant UED
-      </Footer>
-    </Layout>
+            <Content>
+              {location === "tour" && <Oder />}
+              {location === "oder" && <CustomerManagement />}
+              {location === "add" && <AddTour />}
+            </Content>
+          </Layout>
+        </Content>
+      </Layout>
+    </>
   );
 }
 export default Products;

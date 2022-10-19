@@ -1,0 +1,21 @@
+.bbbb {
+  margin-top: 0;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 28%;
+  background: #e1ab22;
+  height: 100%;
+}
+
+.eee {
+  padding: 0;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.table-row-dark {
+  background-color: #f8f8f87d;
+}

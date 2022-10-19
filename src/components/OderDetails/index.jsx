@@ -4,8 +4,6 @@ import { SearchOutlined } from "@ant-design/icons";
 import { Button, Input, Space, Table } from "antd";
 
 import Highlighter from "react-highlight-words";
-import "./style.css";
-
 const data = [
   {
     key: "1",
@@ -62,25 +60,80 @@ const data = [
     address: "London No. 2 Lake Park",
   },
   {
-    key: "",
+    key: "10",
     name: "Jim Red",
     age: 32,
     address: "London No. 2 Lake Park",
   },
 ];
 
-const CustomerManagement = () => {
+const nameTour = [
+  {
+    id: "1",
+    name: "John Brown",
+    age: 32,
+    address: "New York No. 1 Lake Park",
+  },
+  {
+    id: "2",
+    name: "Joe Black",
+    age: 42,
+    address: "London No. 1 Lake Park",
+  },
+  {
+    id: "3",
+    name: "Jim Green",
+    age: 32,
+    address: "Sidney No. 1 Lake Park",
+  },
+  {
+    id: "4",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    id: "5",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    id: "6",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    id: "7",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    id: "8",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    id: "9",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    id: "10",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+];
+
+const OderDetails = () => {
   const [searchText, setSearchText] = useState("");
   const [searchedColumn, setSearchedColumn] = useState("");
   const searchInput = useRef(null);
-  const [show, setShow] = useState("none");
-  const [value, setValue] = useState("");
-
-  const arr = (record) => {
-    console.log("aaaa", record);
-    setShow("");
-    setValue(record);
-  };
 
   const handleSearch = (selectedKeys, confirm, dataIndex) => {
     confirm();
@@ -209,45 +262,20 @@ const CustomerManagement = () => {
       sortDirections: ["descend", "ascend"],
     },
   ];
-  return (
-    <>
-      <div className="eee">
-        <Table
-          columns={columns}
-          dataSource={data}
-          rowClassName={(_, index) => index % 2 === 0 && "table-row-dark"}
-          onRow={(record, rowIndex) => {
-            return {
-              onClick: () => {
-                arr(record);
-                // console.log("aaaa", record.key);
-              },
-            };
-          }}
-          style={{ width: "68%" }}
-        />
-        <div
-          style={{
-            width: "30%",
-            height: "inherit",
-            border: "2px solid red",
-          }}
-        >
-          sdfghjkl
-        </div>
-      </div>
+  return nameTour?.map((item) => {
+    const newData = data?.filter((el) => el.name === item.name);
 
-      <div
-        className="bbbb"
-        style={{
-          display: `${show}`,
-        }}
-      >
-        <h1>{value.name}</h1>
-        <button onClick={() => setShow("none")}>x</button>
+    return (
+      <div key={item?.id}>
+        {item.name}
+        <Table columns={columns} dataSource={newData} />
       </div>
-    </>
-  );
+    );
+  });
+
+  //     <div>
+  //       <Table columns={columns} dataSource={data} />
+  //     </div>
 };
 
-export default CustomerManagement;
+export default OderDetails;
