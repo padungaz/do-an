@@ -24,18 +24,18 @@ const items = [
   },
   {
     label: "Danh sách tất cả các tour",
-    key: "",
+    key: "tour-list",
     icon: <AppstoreOutlined />,
   },
 ];
 
 function Products() {
   const navigate = useNavigate();
-  const location = useLocation().pathname.split("/")[2];
+  const location = useLocation().pathname.split("/")[3];
   console.log("first", location);
   const arr = (e) => {
     console.log("click ", e.key);
-    navigate(`${ROUTES_ADMIN.HOME}/${e.key}`);
+    navigate(`${ROUTES_ADMIN.PAGE_MANAGEMENT}/${e.key}`);
   };
 
   return (

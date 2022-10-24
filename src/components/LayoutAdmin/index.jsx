@@ -35,7 +35,7 @@ const items = [
   // },
   {
     label: "Quản lý tour",
-    key: "tour",
+    key: "products",
     icon: <MailOutlined />,
   },
   {
@@ -59,8 +59,8 @@ const LayoutAdmin = ({ children }) => {
 
   const arr = (e) => {
     console.log("click ", e.key);
-    e.key === "tour"
-      ? navigate(`${ROUTES_ADMIN.PAGE_MANAGEMENT}/${e.key}`)
+    e.key === "products"
+      ? navigate(`${ROUTES_ADMIN.HOME}/${e.key}/tour`)
       : navigate(`${ROUTES_ADMIN.HOME}/${e.key}`);
   };
 
