@@ -6,45 +6,79 @@ import {
   UploadOutlined,
   UserOutlined,
   VideoCameraOutlined,
+  AppstoreOutlined,
+  MailOutlined,
+  SettingOutlined,
 } from "@ant-design/icons";
-import { Layout, Menu } from "antd";
+import { Avatar, Layout, Menu } from "antd";
 import Products from "../Products";
 
-import "./style.css";
+import { useLocation, useNavigate } from "react-router-dom";
+import { ROUTES_ADMIN } from "../../routes/constants";
+
+import "./style.scss";
+import Title from "antd/lib/skeleton/Title";
 // import Oder from "../Oder";
 
 const { Header, Sider, Content } = Layout;
 
-const LayoutAdmin = () => {
+const items = [
+  {
+    label: "Dashboard",
+    key: "overview",
+    icon: <MailOutlined />,
+  },
+  // {
+  //   label: "Quản lý tour",
+  //   key: "tour",
+  //   icon: <MailOutlined />,
+  // },
+  {
+    label: "Quản lý tour",
+    key: "tour",
+    icon: <MailOutlined />,
+  },
+  {
+    label: "Quản lý đơn hàng",
+    key: "oder",
+    icon: <AppstoreOutlined />,
+  },
+  {
+    label: "Thêm Tour",
+    key: "add",
+    icon: <SettingOutlined />,
+  },
+];
+
+const LayoutAdmin = ({ children }) => {
   const [collapsed, setCollapsed] = useState(false);
+  const location = useLocation().pathname.split("/")[2];
+  const navigate = useNavigate();
+
+  console.log("loca", location);
+
+  const arr = (e) => {
+    console.log("click ", e.key);
+    e.key === "tour"
+      ? navigate(`${ROUTES_ADMIN.PAGE_MANAGEMENT}/${e.key}`)
+      : navigate(`${ROUTES_ADMIN.HOME}/${e.key}`);
+  };
 
   return (
     <>
-      {" "}
-      <Layout>
+      <Layout
+        style={{
+          minHeight: "100vh",
+        }}
+      >
         <Sider trigger={null} collapsible collapsed={collapsed}>
           <div className="logo-layout-admin" />
           <Menu
             theme="dark"
+            onClick={arr}
+            selectedKeys={[location]}
             mode="inline"
-            defaultSelectedKeys={["1"]}
-            items={[
-              {
-                key: "1",
-                icon: <UserOutlined />,
-                label: "nav 1",
-              },
-              {
-                key: "2",
-                icon: <VideoCameraOutlined />,
-                label: "nav 2",
-              },
-              {
-                key: "3",
-                icon: <UploadOutlined />,
-                label: "nav 3",
-              },
-            ]}
+            items={items}
           />
         </Sider>
         <Layout className="site-layout">
@@ -52,6 +86,8 @@ const LayoutAdmin = () => {
             className="site-layout-background"
             style={{
               padding: 0,
+              display: "flex",
+              alignItems: "center",
             }}
           >
             {React.createElement(
@@ -61,8 +97,10 @@ const LayoutAdmin = () => {
                 onClick: () => setCollapsed(!collapsed),
               }
             )}
-
-            <div className="aaaaaaa">admin</div>
+            <div>
+              admin
+              <Avatar style={{ margin: "10px" }} src="" />
+            </div>
           </Header>
           <Content
             className="site-layout-background"
@@ -73,7 +111,8 @@ const LayoutAdmin = () => {
             }}
           >
             <div className="cccc">
-              <Products />
+              {/* <Products arr={arr} /> */}
+              {children}
             </div>
           </Content>
         </Layout>

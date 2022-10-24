@@ -1,7 +1,4 @@
 import {
-  // LaptopOutlined,
-  // NotificationOutlined,
-  // UserOutlined,
   AppstoreOutlined,
   MailOutlined,
   SettingOutlined,
@@ -14,50 +11,37 @@ import { ROUTES_ADMIN } from "../../routes/constants";
 import AddTour from "../AddTour";
 import CustomerManagement from "../CustomerManagement";
 import Oder from "../Oder";
+import TourList from "../TourList";
 
 import "./style.css";
 
 const { Header, Content } = Layout;
-// const items1 = ["1", "2", "3"].map((key) => ({
-//   key,
-//   label: `nav ${key}`,
-// }));
-
 const items = [
   {
-    label: "Quản lý tour",
+    label: "tổng hơp tour",
     key: "tour",
     icon: <MailOutlined />,
   },
   {
-    label: "Quản lý đơn hàng",
-    key: "oder",
+    label: "Danh sách tất cả các tour",
+    key: "",
     icon: <AppstoreOutlined />,
-  },
-  {
-    label: "Thêm Tour",
-    key: "add",
-    icon: <SettingOutlined />,
   },
 ];
 
 function Products() {
   const navigate = useNavigate();
-  const location = useLocation().pathname.split("/")[3];
-
+  const location = useLocation().pathname.split("/")[2];
+  console.log("first", location);
   const arr = (e) => {
-    // console.log("click ", e.key);
-    navigate(`${ROUTES_ADMIN.PAGE_MANAGEMENT}/${e.key}`);
+    console.log("click ", e.key);
+    navigate(`${ROUTES_ADMIN.HOME}/${e.key}`);
   };
 
   return (
     <>
       {" "}
-      <Layout
-        style={{
-          position: "relative",
-        }}
-      >
+      <Layout>
         {/* <Header className="header"> */}
         <Menu
           onClick={arr}
@@ -80,8 +64,7 @@ function Products() {
           >
             <Content>
               {location === "tour" && <Oder />}
-              {location === "oder" && <CustomerManagement />}
-              {location === "add" && <AddTour />}
+              {location === "tour-list" && <TourList />}
             </Content>
           </Layout>
         </Content>

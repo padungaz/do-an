@@ -12,7 +12,7 @@
         "startDate": "2022-09-23",
         "endDate": "2022-10-21"
       },
-      "nameTour": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "nameTour": "ve youfdsdsf",
       "address": {
         "province": "Zhejiang",
         "street": "dsadsfsdfds"
@@ -22,6 +22,7 @@
       "service": ["A", "E", "C"],
       "details": "dasfsdfsdfdsfdsffs\nsfsdf\nsdf\nsdf\nsd\nfsd\nfs\ndf\nsdf",
       "numberpeople": 0,
+      "status": 1,
       "numberOder": 4,
       "id": 1
     },
@@ -36,7 +37,7 @@
         "startDate": "2022-09-26",
         "endDate": "2022-10-18"
       },
-      "nameTour": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "nameTour": "ve youfdsdsf",
       "address": {
         "province": "Zhejiang",
         "street": "dsadsfsdfds"
@@ -45,6 +46,7 @@
       "number": 6,
       "service": ["A", "E", "C"],
       "details": "dasfsdfsdfdsfdsffs\nsfsdf\nsdf\nsdf\nsd\nfsd\nfs\ndf\nsdf",
+      "status": 1,
       "numberOder": 4,
       "numberpeople": 4,
       "id": 2
@@ -60,7 +62,7 @@
         "startDate": "2022-09-26",
         "endDate": "2022-10-18"
       },
-      "nameTour": "cccccccccccccccccccccccccccccccccccccc",
+      "nameTour": "ve youfdsdsf",
       "address": {
         "province": "Jiangsu",
         "street": "dsadsfsdfds"
@@ -69,6 +71,7 @@
       "number": 6,
       "service": ["A", "E", "C"],
       "details": "dasfsdfsdfdsfdsffs\nsfsdf\nsdf\nsdf\nsd\nfsd\nfs\ndf\nsdf",
+      "status": 1,
       "numberOder": 4,
       "numberpeople": 0,
       "id": 3
@@ -93,6 +96,7 @@
       "number": 4,
       "service": ["A", "E", "F"],
       "details": "fdfsfsdfsdf",
+      "status": 1,
       "numberOder": 2,
       "numberpeople": 3,
       "id": 4
@@ -117,6 +121,7 @@
       "number": 4,
       "service": ["A", "E", "F"],
       "details": "fdfsfsdfsdf",
+      "status": 1,
       "numberOder": 5,
       "numberpeople": 0,
       "id": 5
@@ -144,6 +149,7 @@
       "promotion": 50,
       "typeTour": ["E", "C"],
       "isNone": false,
+      "status": 1,
       "numberOder": 5,
       "numberpeople": 6,
       "id": 6
@@ -171,6 +177,7 @@
       "promotion": 50,
       "typeTour": ["E", "C"],
       "isNone": false,
+      "status": 1,
       "numberOder": 0,
       "numberpeople": 0,
       "id": 7
@@ -199,6 +206,7 @@
       "typeTour": ["E"],
       "isNone": false,
       "isDisable": false,
+      "status": 1,
       "numberOder": 2,
       "numberpeople": 5,
       "id": 8
@@ -226,6 +234,7 @@
       "promotion": 5,
       "isNone": false,
       "isDisable": false,
+      "status": 1,
       "numberOder": 0,
       "numberpeople": 0,
       "id": 9
@@ -249,6 +258,7 @@
       "details": "sdfsf",
       "isNone": false,
       "isDisable": false,
+      "status": 1,
       "numberOder": 4,
       "numberpeople": 5,
       "id": 10
@@ -272,6 +282,7 @@
       "details": "sfsfds",
       "isNone": false,
       "isDisable": false,
+      "status": 1,
       "numberOder": 0,
       "numberpeople": 4,
       "id": 11
@@ -294,6 +305,7 @@
       "details": "ssss",
       "isNone": false,
       "isDisable": false,
+      "status": 1,
       "numberOder": 0,
       "numberpeople": 0,
       "id": 12
@@ -316,6 +328,7 @@
       "details": "fdfsd",
       "isNone": false,
       "isDisable": false,
+      "status": 1,
       "numberOder": 0,
       "numberpeople": 0,
       "id": 13
@@ -338,6 +351,7 @@
       "details": "fdfsd",
       "isNone": false,
       "isDisable": false,
+      "status": 1,
       "numberOder": 1,
       "numberpeople": 0,
       "id": 14
@@ -364,6 +378,7 @@
       "typeTour": ["E"],
       "isNone": false,
       "isDisable": false,
+      "status": 1,
       "numberOder": 0,
       "numberpeople": 0,
       "id": 15
@@ -386,6 +401,7 @@
       "details": "dd",
       "isNone": false,
       "isDisable": false,
+      "status": 1,
       "numberOder": 2,
       "numberpeople": 0,
       "id": 16
@@ -409,6 +425,7 @@
       "details": "fdfsf",
       "isNone": false,
       "isDisable": false,
+      "status": 1,
       "numberOder": 0,
       "numberpeople": 0,
       "id": 17
@@ -438,9 +455,109 @@
       "isDisable": false,
       "rating": 0,
       "userNumberRating": 0,
+      "status": 1,
       "numberOder": 0,
       "numberpeople": 0,
       "id": 18
+    },
+    {
+      "price": {
+        "gia1": 2324
+      },
+      "from": "Hà Nội",
+      "range-picker": {
+        "startDate": "2022-10-26",
+        "endDate": "2022-11-23"
+      },
+      "nameTour": "Ant Design love you!242342",
+      "address": {
+        "province": "Trong-nươc",
+        "street": "2535235325"
+      },
+      "vehicle": ["máy bay"],
+      "service": ["A"],
+      "details": "3243242",
+      "typeTour": ["D"],
+      "isNone": false,
+      "isDisable": false,
+      "rating": 0,
+      "userNumberRating": 0,
+      "numberOder": 0,
+      "numberpeople": 0,
+      "id": 19
+    },
+    {
+      "price": {
+        "gia1": 3
+      },
+      "from": "Hà Nội",
+      "rangePicker": {
+        "startDate": "2022-10-27",
+        "endDate": "2022-11-10"
+      },
+      "nameTour": "Ant Design love you!a",
+      "address": {
+        "province": "Trong-nươc",
+        "street": "dfffsd"
+      },
+      "vehicle": ["xe-buyt"],
+      "details": "sdasdsafa",
+      "isNone": false,
+      "isDisable": false,
+      "rating": 0,
+      "userNumberRating": 0,
+      "numberOder": 0,
+      "numberpeople": 0,
+      "id": 20
+    },
+    {
+      "price": {
+        "gia1": 232
+      },
+      "from": "HCM",
+      "rangePicker": {
+        "startDate": "2022-10-24",
+        "endDate": "2022-10-26"
+      },
+      "nameTour": "Ant Design love you!12331",
+      "address": {
+        "province": "Trong-nươc",
+        "street": "3123"
+      },
+      "vehicle": ["máy bay"],
+      "details": "werwer",
+      "isNone": false,
+      "isDisable": false,
+      "rating": 0,
+      "userNumberRating": 0,
+      "numberOder": 0,
+      "numberpeople": 0,
+      "id": 21
+    },
+    {
+      "price": {
+        "gia1": 32423
+      },
+      "from": "Hà Nội",
+      "rangePicker": {
+        "startDate": "2022-10-24",
+        "endDate": "2022-10-29"
+      },
+      "nameTour": "Ant Design",
+      "address": {
+        "province": "Thê-gioi",
+        "street": "qeeqe"
+      },
+      "vehicle": ["xe-buyt", "máy bay"],
+      "details": "342424",
+      "isNone": false,
+      "isDisable": false,
+      "rating": 0,
+      "userNumberRating": 0,
+      "numberOder": 0,
+      "numberpeople": 0,
+      "date": 5,
+      "id": 22
     }
   ],
   "oder": [
@@ -449,5 +566,174 @@
       "id": 1
     }
   ],
-  "client": [{}]
+  "client": [
+    {
+      "nameClient": "khach hàng 1",
+      "imail": "kh1@gmail.com",
+      "birthday": "12/03/1999",
+      "nameTour": "ve youfdsdsf",
+      "number": 3,
+      "address": "aa/bb/cc",
+      "timeOderTour": "12/03/2022",
+      "typeTour": ["A"],
+      "totalMoney": 1000000,
+      "status": 1,
+      "tourId": 1,
+      "id": 1
+    },
+    {
+      "nameClient": "khach hàng 2",
+      "imail": "kh1@gmail.com",
+      "birthday": "12/03/1999",
+      "nameTour": "ve you",
+      "number": 3,
+      "address": "aa/bb/cc",
+      "timeOderTour": "12/03/2022",
+      "typeTour": ["A"],
+      "totalMoney": 1000000,
+      "status": 1,
+      "tourId": 8,
+      "id": 2
+    },
+    {
+      "nameClient": "khach hàng 3",
+      "imail": "kh1@gmail.com",
+      "birthday": "12/03/1999",
+      "nameTour": "ve youfdsdsf",
+      "number": 3,
+      "address": "aa/bb/cc",
+      "timeOderTour": "12/03/2022",
+      "typeTour": ["A"],
+      "totalMoney": 1000000,
+      "status": 1,
+      "tourId": 1,
+      "id": 3
+    },
+    {
+      "nameClient": "khach hàng 4",
+      "imail": "kh1@gmail.com",
+      "birthday": "12/03/1999",
+      "nameTour": "ve youfdsdsf",
+      "number": 3,
+      "address": "aa/bb/cc",
+      "timeOderTour": "12/03/2022",
+      "typeTour": ["A"],
+      "totalMoney": 1000000,
+      "status": 1,
+      "tourId": 1,
+      "id": 4
+    },
+    {
+      "nameClient": "khach hàng 5",
+      "imail": "kh1@gmail.com",
+      "birthday": "12/03/1999",
+      "nameTour": "ve you",
+      "number": 3,
+      "address": "aa/bb/cc",
+      "timeOderTour": "12/03/2022",
+      "typeTour": ["A"],
+      "totalMoney": 1000000,
+      "status": 1,
+      "tourId": 9,
+      "id": 5
+    },
+    {
+      "nameClient": "khach hàng 6",
+      "imail": "kh1@gmail.com",
+      "birthday": "12/03/1999",
+      "nameTour": "ve youfdsdsf",
+      "number": 3,
+      "address": "aa/bb/cc",
+      "timeOderTour": "12/03/2022",
+      "typeTour": ["A"],
+      "totalMoney": 1000000,
+      "status": 1,
+      "tourId": 1,
+      "id": 6
+    },
+    {
+      "nameClient": "khach hàng 7",
+      "imail": "kh1@gmail.com",
+      "birthday": "12/03/1999",
+      "nameTour": "ve youfdsdsf",
+      "number": 3,
+      "address": "aa/bb/cc",
+      "timeOderTour": "12/03/2022",
+      "typeTour": ["A"],
+      "totalMoney": 1000000,
+      "status": 1,
+      "tourId": 1,
+      "id": 7
+    },
+    {
+      "nameClient": "khach hàng 8",
+      "imail": "kh1@gmail.com",
+      "birthday": "12/03/1999",
+      "nameTour": "ve you",
+      "number": 3,
+      "address": "aa/bb/cc",
+      "timeOderTour": "12/03/2022",
+      "typeTour": ["A"],
+      "totalMoney": 1000000,
+      "status": 1,
+      "tourId": 8,
+      "id": 8
+    },
+    {
+      "nameClient": "khach hàng 9",
+      "imail": "kh1@gmail.com",
+      "birthday": "12/03/1999",
+      "nameTour": "ve youfdsdsf",
+      "number": 3,
+      "address": "aa/bb/cc",
+      "timeOderTour": "12/03/2022",
+      "typeTour": ["A"],
+      "totalMoney": 1000000,
+      "status": 1,
+      "tourId": 1,
+      "id": 9
+    },
+    {
+      "nameClient": "khach hàng 10",
+      "imail": "kh1@gmail.com",
+      "birthday": "12/03/1999",
+      "nameTour": "ve youfdsdsf",
+      "number": 3,
+      "address": "aa/bb/cc",
+      "timeOderTour": "12/03/2022",
+      "typeTour": ["A"],
+      "totalMoney": 1000000,
+      "status": 1,
+      "tourId": 1,
+      "id": 10
+    },
+    {
+      "nameClient": "khach hàng 11",
+      "imail": "kh1@gmail.com",
+      "birthday": "12/03/1999",
+      "nameTour": "ve youfdsdsf",
+      "number": 3,
+      "address": "aa/bb/cc",
+      "timeOderTour": "12/03/2022",
+      "typeTour": ["A"],
+      "totalMoney": 1000000,
+      "status": 1,
+      "tourId": 1,
+      "id": 11
+    },
+    {
+      "nameClient": "khach hàng 12",
+      "imail": "kh1@gmail.com",
+      "birthday": "12/03/1999",
+      "nameTour": "ve youfdsdsf",
+      "number": 3,
+      "address": "aa/bb/cc",
+      "timeOderTour": "12/03/2022",
+      "typeTour": ["A"],
+      "totalMoney": 1000000,
+      "status": 1,
+      "tourId": 1,
+      "id": 12
+    }
+  ]
 }

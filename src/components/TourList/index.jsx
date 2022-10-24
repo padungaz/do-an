@@ -1,14 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 // import "antd/dist/antd.css";
 import { SearchOutlined } from "@ant-design/icons";
 import { Button, Input, Space, Table } from "antd";
 
 import Highlighter from "react-highlight-words";
 import "./style.scss";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchTour } from "../../store/admin/tourSlice";
-import { generatePath, useNavigate } from "react-router-dom";
-import { ROUTES_ADMIN } from "../../routes/constants";
 import Breadcrumb from "../Breadcrumb";
 
 const breadcrumbs = [
@@ -16,81 +12,166 @@ const breadcrumbs = [
   { content: "Danh sách khóa học", link: "" },
 ];
 
-const Oder = () => {
-  const [filteredInfo, setFilteredInfo] = useState({});
-  const [sortedInfo, setSortedInfo] = useState({});
-  const handleChange = (pagination, filters, sorter) => {
-    console.log("Various parameters", pagination, filters, sorter);
-    setFilteredInfo(filters);
-    setSortedInfo(sorter);
-  };
-  const clearFilters = () => {
-    setFilteredInfo({});
-  };
-  const clearAll = () => {
-    setFilteredInfo({});
-    setSortedInfo({});
-  };
-  const setAgeSort = () => {
-    setSortedInfo({
-      order: "descend",
-      columnKey: "age",
-    });
-  };
+const data = [
+  {
+    key: "1",
+    name: "John Brown",
+    age: 32,
+    address: "New York No. 1 Lake Park",
+  },
+  {
+    key: "2",
+    name: "Joe Black",
+    age: 42,
+    address: "London No. 1 Lake Park",
+  },
+  {
+    key: "3",
+    name: "Jim Green",
+    age: 32,
+    address: "Sidney No. 1 Lake Park",
+  },
+  {
+    key: "4",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    key: "5",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    key: "6",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    key: "7",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    key: "8",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    key: "9",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    key: "10",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    key: "11",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    key: "12",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    key: "13",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    key: "14",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    key: "15",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    key: "16",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    key: "17",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    key: "18",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    key: "19",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    key: "20",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    key: "21",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    key: "22",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    key: "23",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    key: "24",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    key: "25",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+];
 
-  /* ----------------------------- */
-
+const TourList = () => {
   const [searchText, setSearchText] = useState("");
   const [searchedColumn, setSearchedColumn] = useState("");
   const searchInput = useRef(null);
   const [show, setShow] = useState("none");
   const [value, setValue] = useState("");
 
-  const navigate = useNavigate();
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchTour());
-  }, [dispatch]);
-
-  const tourArray = useSelector((state) => state.tourReducer.tours);
-
-  const allNameTour = tourArray?.map((item) => item?.nameTour);
-
-  const nameTours = allNameTour.reduce((acc, el) => {
-    if (acc.indexOf(el) === -1) {
-      acc.push(el);
-    }
-    return acc;
-  }, []);
-
-  const tourListByName = nameTours?.map((item) =>
-    tourArray.filter((el) => el.nameTour === item)
-  );
-
-  const data = tourListByName.map((item, i) => ({
-    nameTour: nameTours[i],
-    status: item?.filter((el) => el?.status)?.length,
-    numberOder: item?.map((el) => el?.numberOder)?.reduce((acc, e) => acc + e),
-    numberpeople: item
-      ?.map((el) => el?.numberpeople)
-      ?.reduce((acc, e) => acc + e),
-  }));
-
-  console.log("data", data);
-  // console.log("tourListByName", tourListByName);
-  // console.log("nameTours", nameTours);
-  // console.log("todoArray", tourArray);
-  // console.log("allNameTour", allNameTour);
-
-  const handleDetail = (nameTour) => {
-    navigate(
-      generatePath(ROUTES_ADMIN.TOUR_DETAIL, {
-        name: nameTour,
-      })
-    );
-  };
   const arr = (record) => {
     console.log("aaaa", record);
     setShow("");
@@ -202,28 +283,26 @@ const Oder = () => {
 
   const columns = [
     {
-      title: "NameTour",
-      dataIndex: "nameTour",
-      key: "nameTour",
+      title: "Name",
+      dataIndex: "name",
+      key: "name",
       width: "30%",
-
-      ...getColumnSearchProps("nameTour"),
+      ...getColumnSearchProps("name"),
     },
     {
-      title: "Số lượng tour được đặt",
-      dataIndex: "numberOder",
-      key: "numberOder",
+      title: "Age",
+      dataIndex: "age",
+      key: "age",
       width: "20%",
-      ...getColumnSearchProps("numberOder"),
+      ...getColumnSearchProps("age"),
     },
     {
-      title: "Số lượng khách",
-      dataIndex: "numberpeople",
-      key: "numberpeople",
-      width: "20%",
-      ...getColumnSearchProps("numberpeople"),
-      // sorter: (a, b) => a.address.length - b.address.length,
-      // sortDirections: ["descend", "ascend"],
+      title: "Address",
+      dataIndex: "address",
+      key: "address",
+      ...getColumnSearchProps("address"),
+      sorter: (a, b) => a.address.length - b.address.length,
+      sortDirections: ["descend", "ascend"],
     },
   ];
   return (
@@ -236,15 +315,19 @@ const Oder = () => {
             marginTop: 16,
           }}
         >
-          <Button onClick={setAgeSort}>Sort age</Button>
-          <Button onClick={clearFilters}>Clear filters</Button>
-          <Button onClick={clearAll}>Clear filters and sorters</Button>
+          <Button>Sort age</Button>
+          <Button>Clear filters</Button>
+          <Button>Clear filters and sorters</Button>
         </Space>
         <div className="aaa">
           <Table
             columns={columns}
             dataSource={data}
             rowClassName={(_, index) => index % 2 === 0 && "table-row-dark"}
+            // scroll={{
+            //   x: "calc(700px + 50%)",
+            //   y: 400,
+            // }}
             onRow={(record, rowIndex) => {
               return {
                 onClick: () => {
@@ -253,7 +336,7 @@ const Oder = () => {
               };
             }}
             style={{
-              width: "100%",
+              width: "100rem",
             }}
           />
           <div
@@ -265,19 +348,15 @@ const Oder = () => {
             <div>
               <div>
                 <button onClick={() => setShow("none")}>x</button>
-                <button>edit</button>
+                <p>{value.nameTour}</p>
               </div>
 
-              <p>{value.nameTour}</p>
-              <p>{value.nameTour}</p>
-              <p>{value.nameTour}</p>
-            </div>
-
-            <div>
-              <button onClick={() => handleDetail(value.nameTour)}>
+              <div>
+                {/* <button onClick={() => handleDetail(value.nameTour)}>
                 {" "}
                 details{" "}
-              </button>
+              </button> */}
+              </div>
             </div>
           </div>
         </div>
@@ -286,4 +365,4 @@ const Oder = () => {
   );
 };
 
-export default Oder;
+export default TourList;

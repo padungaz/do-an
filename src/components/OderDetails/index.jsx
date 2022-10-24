@@ -1,139 +1,51 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 // import "antd/dist/antd.css";
 import { SearchOutlined } from "@ant-design/icons";
 import { Button, Input, Space, Table } from "antd";
 
 import Highlighter from "react-highlight-words";
-const data = [
-  {
-    key: "1",
-    name: "John Brown",
-    age: 32,
-    address: "New York No. 1 Lake Park",
-  },
-  {
-    key: "2",
-    name: "Joe Black",
-    age: 42,
-    address: "London No. 1 Lake Park",
-  },
-  {
-    key: "3",
-    name: "Jim Green",
-    age: 32,
-    address: "Sidney No. 1 Lake Park",
-  },
-  {
-    key: "4",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    key: "5",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    key: "6",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    key: "7",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    key: "8",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    key: "9",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    key: "10",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-];
+import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchTour } from "../../store/admin/tourSlice";
+import { fetchClient } from "../../store/admin/clientSlice";
 
-const nameTour = [
-  {
-    id: "1",
-    name: "John Brown",
-    age: 32,
-    address: "New York No. 1 Lake Park",
-  },
-  {
-    id: "2",
-    name: "Joe Black",
-    age: 42,
-    address: "London No. 1 Lake Park",
-  },
-  {
-    id: "3",
-    name: "Jim Green",
-    age: 32,
-    address: "Sidney No. 1 Lake Park",
-  },
-  {
-    id: "4",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    id: "5",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    id: "6",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    id: "7",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    id: "8",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    id: "9",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    id: "10",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
+import "./style.scss";
+
+import Breadcrumb from "../Breadcrumb";
+
+const breadcrumbs = [
+  { content: "Khóa học", link: "" },
+  { content: "Danh sách khóa học", link: "" },
 ];
 
 const OderDetails = () => {
   const [searchText, setSearchText] = useState("");
   const [searchedColumn, setSearchedColumn] = useState("");
+  const [statu, setStatu] = useState("");
   const searchInput = useRef(null);
+  const dispatch = useDispatch();
+
+  const [show, setShow] = useState("none");
+  const [value, setValue] = useState("");
+
+  useEffect(() => {
+    dispatch(fetchTour());
+    dispatch(fetchClient());
+  }, [dispatch]);
+
+  const tourArray = useSelector((state) => state.tourReducer.tours);
+  const datas = useSelector((state) => state.clientReducer.clients);
+  const { name } = useParams();
+
+  const dataTour = tourArray?.filter((item) => item?.nameTour === name);
+
+  // console.log("datas", datas);
+  // console.log("dataTour", dataTour);
+  const arr = (record) => {
+    console.log("aaaa", record);
+    setShow("");
+    setValue(record);
+  };
 
   const handleSearch = (selectedKeys, confirm, dataIndex) => {
     confirm();
@@ -241,17 +153,17 @@ const OderDetails = () => {
   const columns = [
     {
       title: "Name",
-      dataIndex: "name",
-      key: "name",
+      dataIndex: "nameClient",
+      key: "nameClient",
       width: "30%",
-      ...getColumnSearchProps("name"),
+      ...getColumnSearchProps("nameClient"),
     },
     {
       title: "Age",
-      dataIndex: "age",
-      key: "age",
+      dataIndex: "birthday",
+      key: "birthday",
       width: "20%",
-      ...getColumnSearchProps("age"),
+      ...getColumnSearchProps("birthday"),
     },
     {
       title: "Address",
@@ -262,20 +174,56 @@ const OderDetails = () => {
       sortDirections: ["descend", "ascend"],
     },
   ];
-  return nameTour?.map((item) => {
-    const newData = data?.filter((el) => el.name === item.name);
 
-    return (
-      <div key={item?.id}>
-        {item.name}
-        <Table columns={columns} dataSource={newData} />
-      </div>
-    );
-  });
+  const renderItem = () => {
+    return dataTour?.map((item) => {
+      const newData = datas?.filter((el) => el?.tourId === item?.id);
+      return (
+        <div key={item?.id}>
+          <h1>{item?.nameTour}</h1>
+          <h2>mã tour: </h2> <span>{item?.id}</span>
+          <div className="aaa">
+            <Table
+              columns={columns}
+              dataSource={newData}
+              rowClassName={(_, index) => index % 2 === 0 && "table-row-dark"}
+              onRow={(record, rowIndex) => {
+                return {
+                  onClick: () => {
+                    arr(record);
+                  },
+                };
+              }}
+              style={{
+                width: "100%",
+              }}
+            />
 
-  //     <div>
-  //       <Table columns={columns} dataSource={data} />
-  //     </div>
+            <div
+              className="bbbbb"
+              style={{
+                display: `${show}`,
+              }}
+            >
+              <div>
+                <div>
+                  <button onClick={() => setShow("none")}>x</button>
+                  <p>{value.nameTour}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    });
+  };
+
+  return (
+    <div className="wraper">
+      <Breadcrumb breadcrumbs={breadcrumbs} />
+      {renderItem()}
+    </div>
+  );
 };
 
 export default OderDetails;

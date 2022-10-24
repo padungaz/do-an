@@ -4,7 +4,13 @@ import { SearchOutlined } from "@ant-design/icons";
 import { Button, Input, Space, Table } from "antd";
 
 import Highlighter from "react-highlight-words";
-import "./style.css";
+import "./style.scss";
+import Breadcrumb from "../Breadcrumb";
+
+const breadcrumbs = [
+  { content: "Khóa học", link: "" },
+  { content: "Danh sách khóa học", link: "" },
+];
 
 const data = [
   {
@@ -62,7 +68,97 @@ const data = [
     address: "London No. 2 Lake Park",
   },
   {
-    key: "",
+    key: "10",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    key: "11",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    key: "12",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    key: "13",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    key: "14",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    key: "15",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    key: "16",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    key: "17",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    key: "18",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    key: "19",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    key: "20",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    key: "21",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    key: "22",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    key: "23",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    key: "24",
+    name: "Jim Red",
+    age: 32,
+    address: "London No. 2 Lake Park",
+  },
+  {
+    key: "25",
     name: "Jim Red",
     age: 32,
     address: "London No. 2 Lake Park",
@@ -211,40 +307,59 @@ const CustomerManagement = () => {
   ];
   return (
     <>
-      <div className="eee">
-        <Table
-          columns={columns}
-          dataSource={data}
-          rowClassName={(_, index) => index % 2 === 0 && "table-row-dark"}
-          onRow={(record, rowIndex) => {
-            return {
-              onClick: () => {
-                arr(record);
-                // console.log("aaaa", record.key);
-              },
-            };
-          }}
-          style={{ width: "68%" }}
-        />
-        <div
+      <div className="wraper">
+        <Breadcrumb breadcrumbs={breadcrumbs} />
+        <Space
           style={{
-            width: "30%",
-            height: "inherit",
-            border: "2px solid red",
+            marginBottom: 16,
+            marginTop: 16,
           }}
         >
-          sdfghjkl
-        </div>
-      </div>
+          <Button>Sort age</Button>
+          <Button>Clear filters</Button>
+          <Button>Clear filters and sorters</Button>
+        </Space>
+        <div className="aaa">
+          <Table
+            columns={columns}
+            dataSource={data}
+            rowClassName={(_, index) => index % 2 === 0 && "table-row-dark"}
+            // scroll={{
+            //   x: "calc(700px + 50%)",
+            //   y: 400,
+            // }}
+            onRow={(record, rowIndex) => {
+              return {
+                onClick: () => {
+                  arr(record);
+                },
+              };
+            }}
+            style={{
+              width: "100rem",
+            }}
+          />
+          <div
+            className="bbbbb"
+            style={{
+              display: `${show}`,
+            }}
+          >
+            <div>
+              <div>
+                <button onClick={() => setShow("none")}>x</button>
+                <p>{value.nameTour}</p>
+              </div>
 
-      <div
-        className="bbbb"
-        style={{
-          display: `${show}`,
-        }}
-      >
-        <h1>{value.name}</h1>
-        <button onClick={() => setShow("none")}>x</button>
+              <div>
+                {/* <button onClick={() => handleDetail(value.nameTour)}>
+                {" "}
+                details{" "}
+              </button> */}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
