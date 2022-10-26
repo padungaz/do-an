@@ -1,18 +1,3 @@
-// const preAdmin = "/admin";
-
-// export const ROUTES = {
-//   HOME: "/",
-// };
-
-// export const ROUTES_ADMIN = {
-//   HOME: `${preAdmin}`,
-//   PAGE_MANAGEMENT: `${preAdmin}/tour-management`,
-//   TOUR_MANAGEMENT: `${preAdmin}/tour-management/tour`,
-//   ODER_MANAGEMENT: `${preAdmin}/tour-management/oder`,
-//   ADD_MANAGEMENT: `${preAdmin}/tour-management/add`,
-//   TOUR_DETAIL: `${preAdmin}/tour-management/tour/:name`,
-// };
-
 const preRoute = "";
 const preAdmin = "/admin";
 const preUser = "/user";
@@ -27,11 +12,10 @@ export const ROUTES_ADMIN = {
   HOME: `${preAdmin}`,
   OVERVIEW_PAGE: `${preAdmin}/overview`,
   PAGE_MANAGEMENT: `${preAdmin}/products`,
-  // TOUR_MANAGEMENT: `${preAdmin}/tour`,
-  // TOUR_LIST_MANAGEMENT: `${preAdmin}/tour-list`,
-  TOUR_MANAGEMENT: `${preAdmin}/products/tour`,
-  TOUR_LIST_MANAGEMENT: `${preAdmin}/products/tour-list`,
+  TOUR_lIST: `${preAdmin}/products/tour-list`,
+  ALL_TOUR_LIST: `${preAdmin}/products/all-tour-list`,
   ODER_MANAGEMENT: `${preAdmin}/oder`,
+  // BOOKING: `${preAdmin}/oder`,
   ADD_MANAGEMENT: `${preAdmin}/add`,
-  TOUR_DETAIL: `${preAdmin}/tour/:name`,
+  TOUR_DETAIL: `${preAdmin}/products/:name`,
 };

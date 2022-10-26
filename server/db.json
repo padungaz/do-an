@@ -8,7 +8,7 @@
         "gia3": 444444
       },
       "from": "Hà Nội",
-      "range-picker": {
+      "rangePicker": {
         "startDate": "2022-09-23",
         "endDate": "2022-10-21"
       },
@@ -33,7 +33,7 @@
         "gia3": 444444
       },
       "from": "HCM",
-      "range-picker": {
+      "rangePicker": {
         "startDate": "2022-09-26",
         "endDate": "2022-10-18"
       },
@@ -58,7 +58,7 @@
         "gia3": 444444
       },
       "from": "HCM",
-      "range-picker": {
+      "rangePicker": {
         "startDate": "2022-09-26",
         "endDate": "2022-10-18"
       },
@@ -83,7 +83,7 @@
         "gia3": 345
       },
       "from": "Hà Nội",
-      "range-picker": {
+      "rangePicker": {
         "startDate": "2022-09-29",
         "endDate": "2022-10-21"
       },
@@ -108,7 +108,7 @@
         "gia3": 345
       },
       "from": "Hà Nội",
-      "range-picker": {
+      "rangePicker": {
         "startDate": "2022-09-29",
         "endDate": "2022-10-21"
       },
@@ -133,7 +133,7 @@
         "gia3": 222
       },
       "from": "Hà Nội",
-      "range-picker": {
+      "rangePicker": {
         "startDate": "2022-10-21",
         "endDate": "2022-11-15"
       },
@@ -161,7 +161,7 @@
         "gia3": 222
       },
       "from": "Hà Nội",
-      "range-picker": {
+      "rangePicker": {
         "startDate": "2022-10-21",
         "endDate": "2022-11-15"
       },
@@ -189,7 +189,7 @@
         "gia3": 22424
       },
       "from": "Hà Nội",
-      "range-picker": {
+      "rangePicker": {
         "startDate": "2022-11-09",
         "endDate": "2022-11-25"
       },
@@ -218,7 +218,7 @@
         "gia3": 333
       },
       "from": "Hà Nội",
-      "range-picker": {
+      "rangePicker": {
         "startDate": "2022-10-27",
         "endDate": "2022-11-15"
       },
@@ -244,7 +244,7 @@
         "gia1": 4
       },
       "from": "Hà Nội",
-      "range-picker": {
+      "rangePicker": {
         "startDate": "2022-10-28",
         "endDate": "2022-11-16"
       },
@@ -268,7 +268,7 @@
         "gia1": 5435
       },
       "from": "Hà Nội",
-      "range-picker": {
+      "rangePicker": {
         "startDate": "2022-10-20",
         "endDate": "2022-11-17"
       },
@@ -292,7 +292,7 @@
         "gia1": 44444
       },
       "from": "Hà Nội",
-      "range-picker": {
+      "rangePicker": {
         "startDate": "2022-10-29",
         "endDate": "2022-11-16"
       },
@@ -315,7 +315,7 @@
         "gia1": 654
       },
       "from": "Hà Nội",
-      "range-picker": {
+      "rangePicker": {
         "startDate": "2022-11-07",
         "endDate": "2022-11-15"
       },
@@ -338,7 +338,7 @@
         "gia1": 654
       },
       "from": "Hà Nội",
-      "range-picker": {
+      "rangePicker": {
         "startDate": "2022-11-07",
         "endDate": "2022-11-15"
       },
@@ -361,7 +361,7 @@
         "gia1": 4
       },
       "from": "Hà Nội",
-      "range-picker": {
+      "rangePicker": {
         "startDate": "2022-10-29",
         "endDate": "2022-11-23"
       },
@@ -388,7 +388,7 @@
         "gia1": 2
       },
       "from": "Hà Nội",
-      "range-picker": {
+      "rangePicker": {
         "startDate": "2022-10-19",
         "endDate": "2022-11-20"
       },
@@ -411,7 +411,7 @@
         "gia1": 3
       },
       "from": "Hà Nội",
-      "range-picker": {
+      "rangePicker": {
         "startDate": "2022-10-22",
         "endDate": "2022-11-09"
       },
@@ -435,7 +435,7 @@
         "gia1": 2
       },
       "from": "Hà Nội",
-      "range-picker": {
+      "rangePicker": {
         "startDate": "2022-10-20",
         "endDate": "2022-11-21"
       },
@@ -465,7 +465,7 @@
         "gia1": 2324
       },
       "from": "Hà Nội",
-      "range-picker": {
+      "rangePicker": {
         "startDate": "2022-10-26",
         "endDate": "2022-11-23"
       },

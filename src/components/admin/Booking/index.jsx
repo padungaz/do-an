@@ -5,11 +5,12 @@ import { Button, Input, Space, Table } from "antd";
 
 import Highlighter from "react-highlight-words";
 import "./style.scss";
-import Breadcrumb from "../Breadcrumb";
+import Breadcrumb from "../../Breadcrumb";
+import { ROUTES_ADMIN } from "../../../routes/constants";
 
 const breadcrumbs = [
-  { content: "Khóa học", link: "" },
-  { content: "Danh sách khóa học", link: "" },
+  { content: "Quản lý tour", link: "" },
+  { content: "Danh sách tour chi tiết", link: ROUTES_ADMIN.ALL_TOUR_LIST },
 ];
 
 const data = [
@@ -165,7 +166,7 @@ const data = [
   },
 ];
 
-const TourList = () => {
+const Booking = () => {
   const [searchText, setSearchText] = useState("");
   const [searchedColumn, setSearchedColumn] = useState("");
   const searchInput = useRef(null);
@@ -336,7 +337,7 @@ const TourList = () => {
               };
             }}
             style={{
-              width: "100rem",
+              width: "100%",
             }}
           />
           <div
@@ -365,4 +366,4 @@ const TourList = () => {
   );
 };
 
-export default TourList;
+export default Booking;

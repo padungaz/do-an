@@ -1,30 +1,23 @@
-import {
-  AppstoreOutlined,
-  MailOutlined,
-  SettingOutlined,
-} from "@ant-design/icons";
+import { AppstoreOutlined, MailOutlined } from "@ant-design/icons";
 import { Layout, Menu } from "antd";
 import React from "react";
-// import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { ROUTES_ADMIN } from "../../routes/constants";
-import AddTour from "../AddTour";
-import CustomerManagement from "../CustomerManagement";
-import Oder from "../Oder";
+import { ROUTES_ADMIN } from "../../../routes/constants";
+import AllTourList from "../AllTourList";
 import TourList from "../TourList";
 
 import "./style.css";
 
-const { Header, Content } = Layout;
+const { Content } = Layout;
 const items = [
   {
     label: "tổng hơp tour",
-    key: "tour",
+    key: "tour-list",
     icon: <MailOutlined />,
   },
   {
     label: "Danh sách tất cả các tour",
-    key: "tour-list",
+    key: "all-tour-list",
     icon: <AppstoreOutlined />,
   },
 ];
@@ -63,8 +56,8 @@ function Products() {
             }}
           >
             <Content>
-              {location === "tour" && <Oder />}
               {location === "tour-list" && <TourList />}
+              {location === "all-tour-list" && <AllTourList />}
             </Content>
           </Layout>
         </Content>

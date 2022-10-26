@@ -1,168 +1,18 @@
-import React, { useRef, useState } from "react";
-// import "antd/dist/antd.css";
+import React, { useEffect, useRef, useState } from "react";
 import { SearchOutlined } from "@ant-design/icons";
 import { Button, Input, Space, Table } from "antd";
-
 import Highlighter from "react-highlight-words";
+import { useDispatch, useSelector } from "react-redux";
+
+import Breadcrumb from "../../Breadcrumb";
+import { ROUTES_ADMIN } from "../../../routes/constants";
+import { fetchClient } from "../../../store/admin/clientSlice";
+
 import "./style.scss";
-import Breadcrumb from "../Breadcrumb";
 
 const breadcrumbs = [
-  { content: "Khóa học", link: "" },
-  { content: "Danh sách khóa học", link: "" },
-];
-
-const data = [
-  {
-    key: "1",
-    name: "John Brown",
-    age: 32,
-    address: "New York No. 1 Lake Park",
-  },
-  {
-    key: "2",
-    name: "Joe Black",
-    age: 42,
-    address: "London No. 1 Lake Park",
-  },
-  {
-    key: "3",
-    name: "Jim Green",
-    age: 32,
-    address: "Sidney No. 1 Lake Park",
-  },
-  {
-    key: "4",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    key: "5",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    key: "6",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    key: "7",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    key: "8",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    key: "9",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    key: "10",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    key: "11",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    key: "12",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    key: "13",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    key: "14",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    key: "15",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    key: "16",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    key: "17",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    key: "18",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    key: "19",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    key: "20",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    key: "21",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    key: "22",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    key: "23",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    key: "24",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
-  {
-    key: "25",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
-  },
+  { content: "Đơn hàng", link: "" },
+  { content: "Danh sách khách hàng", link: ROUTES_ADMIN.ODER_MANAGEMENT },
 ];
 
 const CustomerManagement = () => {
@@ -172,8 +22,16 @@ const CustomerManagement = () => {
   const [show, setShow] = useState("none");
   const [value, setValue] = useState("");
 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchClient());
+  }, [dispatch]);
+
+  const data = useSelector((state) => state.clientReducer.clients);
+
   const arr = (record) => {
-    console.log("aaaa", record);
+    // console.log("aaaa", record);
     setShow("");
     setValue(record);
   };
@@ -284,17 +142,17 @@ const CustomerManagement = () => {
   const columns = [
     {
       title: "Name",
-      dataIndex: "name",
-      key: "name",
+      dataIndex: "nameClient",
+      key: "nameClient",
       width: "30%",
-      ...getColumnSearchProps("name"),
+      ...getColumnSearchProps("nameClient"),
     },
     {
       title: "Age",
-      dataIndex: "age",
-      key: "age",
+      dataIndex: "birthday",
+      key: "birthday",
       width: "20%",
-      ...getColumnSearchProps("age"),
+      ...getColumnSearchProps("birthday"),
     },
     {
       title: "Address",
@@ -315,9 +173,15 @@ const CustomerManagement = () => {
             marginTop: 16,
           }}
         >
-          <Button>Sort age</Button>
-          <Button>Clear filters</Button>
-          <Button>Clear filters and sorters</Button>
+          <Button
+            onClick={() => setSearchText([])}
+            size="small"
+            style={{
+              width: 90,
+            }}
+          >
+            Reset
+          </Button>
         </Space>
         <div className="aaa">
           <Table
@@ -336,7 +200,7 @@ const CustomerManagement = () => {
               };
             }}
             style={{
-              width: "100rem",
+              width: "100%",
             }}
           />
           <div

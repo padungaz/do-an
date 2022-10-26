@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch /* , useSelector */ } from "react-redux";
 
 // import "antd/dist/antd.css";
-import { paymentEdit } from "../../store/admin/paymentSlice";
+import { paymentEdit } from "../../../store/admin/paymentSlice";
 import { Button, Form, Input, InputNumber } from "antd";
 
 const layout = {

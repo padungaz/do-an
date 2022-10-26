@@ -8,26 +8,7 @@ Breadcrumb.propTypes = {
   breadcrumbs: PropTypes.array,
 };
 
-export const LinlkTo = styled(Link)`
-  /* font-size: 18px;
-  font-weight: 700;
-  line-height: 1.5;
-  letter-spacing: 0.5px;
-  color: #b5b5b5;
-
-  &:hover {
-    color: #333333;
-  }
-
-  &.first {
-    color: #2c2c2c !important;
-    cursor: 'pointer';
-  }
-
-  &.last {
-    color: #2c2c2c !important;
-  } */
-`;
+export const LinlkTo = styled(Link)``;
 
 export const BreadcrumbWrapper = styled(BreadcrumbBase)`
   padding: 0px 0px 16px 0px;

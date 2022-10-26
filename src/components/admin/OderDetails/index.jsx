@@ -1,22 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
-// import "antd/dist/antd.css";
+import { useDispatch, useSelector } from "react-redux";
 import { SearchOutlined } from "@ant-design/icons";
 import { Button, Input, Space, Table } from "antd";
-
 import Highlighter from "react-highlight-words";
 import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchTour } from "../../store/admin/tourSlice";
-import { fetchClient } from "../../store/admin/clientSlice";
+
+import { fetchTour } from "../../../store/admin/tourSlice";
+import { fetchClient } from "../../../store/admin/clientSlice";
+import Breadcrumb from "../../Breadcrumb";
+import { ROUTES_ADMIN } from "../../../routes/constants";
 
 import "./style.scss";
-
-import Breadcrumb from "../Breadcrumb";
-
-const breadcrumbs = [
-  { content: "Khóa học", link: "" },
-  { content: "Danh sách khóa học", link: "" },
-];
 
 const OderDetails = () => {
   const [searchText, setSearchText] = useState("");
@@ -28,6 +22,14 @@ const OderDetails = () => {
   const [show, setShow] = useState("none");
   const [value, setValue] = useState("");
 
+  const { name } = useParams();
+
+  const breadcrumbs = [
+    { content: "Quản lý tour", link: "" },
+    { content: "Danh sách tour", link: ROUTES_ADMIN.ALL_TOUR_LIST },
+    { content: `${name}`, link: ROUTES_ADMIN.TOUR_DETAIL },
+  ];
+
   useEffect(() => {
     dispatch(fetchTour());
     dispatch(fetchClient());
@@ -35,7 +37,6 @@ const OderDetails = () => {
 
   const tourArray = useSelector((state) => state.tourReducer.tours);
   const datas = useSelector((state) => state.clientReducer.clients);
-  const { name } = useParams();
 
   const dataTour = tourArray?.filter((item) => item?.nameTour === name);
 

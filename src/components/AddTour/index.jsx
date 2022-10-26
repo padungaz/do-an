@@ -1,8 +1,6 @@
 import React from "react";
-import { useDispatch /* , useSelector */, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
-
-import { addTour, fetchTour } from "../../store/admin/tourSlice";
 import { InboxOutlined, UploadOutlined, UserOutlined } from "@ant-design/icons";
 
 import {
@@ -19,6 +17,7 @@ import {
 } from "antd";
 import { useEffect } from "react";
 import Breadcrumb from "../Breadcrumb";
+import { addTour, fetchTour } from "../../store/admin/tourSlice";
 
 import "./style.scss";
 
@@ -53,7 +52,7 @@ const normFile = (e) => {
   return e?.fileList;
 };
 
-const AddTour = () => {
+const AddTour = ({ item }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -62,7 +61,7 @@ const AddTour = () => {
   }, [dispatch]);
 
   const tourArray = useSelector((state) => state.tourReducer.tours);
-  console.log("todoArray", tourArray);
+  console.log("item", item);
 
   // const value = tourArray.map((item) => ({
   //   nameTour: item.nameTour,
@@ -141,7 +140,7 @@ const AddTour = () => {
   return (
     <>
       <div className="wraper">
-        <Breadcrumb breadcrumbs={breadcrumbs} />
+        {item ? null : <Breadcrumb breadcrumbs={breadcrumbs} />}
         <div className="form">
           <Form name="validate_other" {...formItemLayout} onFinish={onFinish}>
             <Form.Item
