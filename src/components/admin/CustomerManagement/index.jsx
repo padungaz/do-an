@@ -3,12 +3,15 @@ import { SearchOutlined } from "@ant-design/icons";
 import { Button, Input, Space, Table } from "antd";
 import Highlighter from "react-highlight-words";
 import { useDispatch, useSelector } from "react-redux";
+import debounce from "lodash.debounce";
 
 import Breadcrumb from "../../Breadcrumb";
 import { ROUTES_ADMIN } from "../../../routes/constants";
 import { fetchClient } from "../../../store/admin/clientSlice";
 
 import "./style.scss";
+
+const { Search } = Input;
 
 const breadcrumbs = [
   { content: "Đơn hàng", link: "" },
@@ -28,10 +31,26 @@ const CustomerManagement = () => {
     dispatch(fetchClient());
   }, [dispatch]);
 
-  const data = useSelector((state) => state.clientReducer.clients);
+  const clients = useSelector((state) => state.clientReducer.clients);
+  const [data, setData] = useState(clients);
+
+  const onSearch = debounce((value) => {
+    const arr = clients?.filter((item) =>
+      value
+        ? item?.nameTour
+            .toLowerCase()
+            .trim()
+            .includes(value.toLowerCase().trim()) ||
+          item?.nameClient
+            .toLowerCase()
+            .trim()
+            .includes(value.toLowerCase().trim())
+        : item
+    );
+    setData(arr);
+  }, 1000);
 
   const arr = (record) => {
-    // console.log("aaaa", record);
     setShow("");
     setValue(record);
   };
@@ -173,15 +192,12 @@ const CustomerManagement = () => {
             marginTop: 16,
           }}
         >
-          <Button
-            onClick={() => setSearchText([])}
-            size="small"
-            style={{
-              width: 90,
-            }}
-          >
-            Reset
-          </Button>
+          <Search
+            placeholder="input search text"
+            onChange={(e) => onSearch(e.target.value)}
+            allowClear
+            enterButton
+          />
         </Space>
         <div className="aaa">
           <Table

@@ -56,18 +56,10 @@ const AddTour = ({ item }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // console.log("fdsfdsfsd");
     dispatch(fetchTour());
   }, [dispatch]);
 
   const tourArray = useSelector((state) => state.tourReducer.tours);
-  console.log("item", item);
-
-  // const value = tourArray.map((item) => ({
-  //   nameTour: item.nameTour,
-  //   address: item.address,
-  //   from: item.from,
-  // }));
 
   const rangeConfig = {
     rules: [
@@ -79,24 +71,14 @@ const AddTour = ({ item }) => {
   };
 
   const onFinish = (fieldsValue) => {
-    console.log("value", fieldsValue);
-
-    // const { gia1, gia2, gia3 } = fieldsValue;
-    // const price = { gia1, gia2, gia3 };
-
     const rangeValue = fieldsValue["range-picker"];
-
-    console.log(
-      "rangeValue",
-      (moment(rangeValue[1])._d - moment(rangeValue[0])._d) / 86400000
-    );
 
     const dataSubmit = {
       price: fieldsValue.price,
       from: fieldsValue.from,
       rangePicker: {
-        startDate: rangeValue[0].format("YYYY-MM-DD"),
-        endDate: rangeValue[1].format("YYYY-MM-DD"),
+        startDate: rangeValue[0].format("DD/MM/YYYY"),
+        endDate: rangeValue[1].format("DD/MM/YYYY"),
       },
       nameTour: fieldsValue.nameTour,
       address: fieldsValue.address,
@@ -113,7 +95,8 @@ const AddTour = ({ item }) => {
       userNumberRating: 0,
       numberOder: 0,
       numberpeople: 0,
-      date: (moment(rangeValue[1])._d - moment(rangeValue[0])._d) / 86400000,
+      longTime:
+        (moment(rangeValue[1])._d - moment(rangeValue[0])._d) / 86400000,
     };
     const arr = {
       nameTour: dataSubmit.nameTour,
@@ -155,39 +138,6 @@ const AddTour = ({ item }) => {
               <Input defaultValue="Ant Design love you!" />
             </Form.Item>
 
-            {/* <Form.Item label="gia">
-              <Form.Item
-                name="gia1"
-                label="giá1"
-                rules={[
-                  {
-                    required: true,
-                  },
-                ]}
-              >
-                <InputNumber
-                  addonBefore={<UserOutlined />}
-                  addonAfter="$"
-                  style={{ width: "100%" }}
-                />
-              </Form.Item>
-
-              <Form.Item name="gia2" label="giá2">
-                <InputNumber
-                  addonBefore={<UserOutlined />}
-                  addonAfter="$"
-                  style={{ width: "100%" }}
-                />
-              </Form.Item>
-
-              <Form.Item name="gia3" label="giá3">
-                <InputNumber
-                  addonBefore={<UserOutlined />}
-                  addonAfter="$"
-                  style={{ width: "100%" }}
-                />
-              </Form.Item>
-            </Form.Item> */}
             <Form.Item
               name="price"
               label="giá"
@@ -220,41 +170,22 @@ const AddTour = ({ item }) => {
               </Select>
             </Form.Item>
 
-            <Form.Item label="Address">
-              <Input.Group compact>
-                <Form.Item
-                  name={["address", "province"]}
-                  noStyle
-                  rules={[
-                    {
-                      required: true,
-                      message: "Province is required",
-                    },
-                  ]}
-                >
-                  <Select placeholder="Select province">
-                    <Option value="Trong-nươc">Trong nước</Option>
-                    <Option value="Thê-gioi">Thế giới</Option>
-                  </Select>
-                </Form.Item>
-                <Form.Item
-                  name={["address", "street"]}
-                  noStyle
-                  rules={[
-                    {
-                      required: true,
-                      message: "Street is required",
-                    },
-                  ]}
-                >
-                  <Input
-                    style={{
-                      width: "50%",
-                    }}
-                    placeholder="Input street"
-                  />
-                </Form.Item>
-              </Input.Group>
+            <Form.Item
+              name="address"
+              label="address"
+              rules={[
+                {
+                  required: true,
+                  message: "address is required",
+                },
+              ]}
+            >
+              <Input
+                style={{
+                  width: "100%",
+                }}
+                placeholder="Input address"
+              />
             </Form.Item>
 
             <Form.Item

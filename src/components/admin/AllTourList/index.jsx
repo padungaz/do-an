@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { SearchOutlined } from "@ant-design/icons";
 import { Button, Input, Space, Table } from "antd";
 import Highlighter from "react-highlight-words";
+import debounce from "lodash.debounce";
 
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTour } from "../../../store/admin/tourSlice";
@@ -10,6 +11,8 @@ import { ROUTES_ADMIN } from "../../../routes/constants";
 import AddTour from "../../AddTour";
 
 import "./style.scss";
+
+const { Search } = Input;
 
 const breadcrumbs = [
   { content: "Quản lý tour", link: "" },
@@ -182,12 +185,22 @@ const AllTourList = () => {
     dispatch(fetchTour());
   }, [dispatch]);
 
-  const data = useSelector((state) => state.tourReducer.tours);
+  const tours = useSelector((state) => state.tourReducer.tours);
+  const [data, setData] = useState(tours);
 
-  console.log("datas", data);
+  const onSearch = debounce((value) => {
+    const arr = tours?.filter((item) =>
+      value
+        ? item?.nameTour
+            .toLowerCase()
+            .trim()
+            .includes(value.toLowerCase().trim())
+        : item
+    );
+    setData(arr);
+  }, 1000);
 
   const arr = (record) => {
-    console.log("aaaa", record);
     setShow("");
     setValue(record);
   };
@@ -329,9 +342,12 @@ const AllTourList = () => {
             marginTop: 16,
           }}
         >
-          <Button>Sort age</Button>
-          <Button>Clear filters</Button>
-          <Button>Clear filters and sorters</Button>
+          <Search
+            placeholder="input search text"
+            onChange={(e) => onSearch(e.target.value)}
+            allowClear
+            enterButton
+          />
         </Space>
         <div className="aaa">
           <Table

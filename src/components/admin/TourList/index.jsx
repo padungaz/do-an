@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
-import { SearchOutlined, AudioOutlined } from "@ant-design/icons";
+import { SearchOutlined /* , AudioOutlined */ } from "@ant-design/icons";
 import { Button, Input, Space, Table } from "antd";
 import { generatePath, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Highlighter from "react-highlight-words";
+import debounce from "lodash.debounce";
 
 import { ROUTES_ADMIN } from "../../../routes/constants";
 import { fetchTour } from "../../../store/admin/tourSlice";
@@ -24,9 +25,9 @@ const TourList = () => {
   const searchInput = useRef(null);
   const [show, setShow] = useState("none");
   const [value, setValue] = useState("");
+  const [search, setSearch] = useState("");
 
   const navigate = useNavigate();
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -34,8 +35,12 @@ const TourList = () => {
   }, [dispatch]);
 
   const tourArray = useSelector((state) => state.tourReducer.tours);
+  const [tours, setTours] = useState(tourArray);
 
-  const allNameTour = tourArray?.map((item) => item?.nameTour);
+  const allNameTour =
+    search === ""
+      ? tourArray.map((item) => item?.nameTour)
+      : tours?.map((item) => item?.nameTour);
 
   const nameTours = allNameTour.reduce((acc, el) => {
     if (acc.indexOf(el) === -1) {
@@ -44,15 +49,13 @@ const TourList = () => {
     return acc;
   }, []);
 
-  const onSearch = (value) => {
-    console.log(value);
-  };
-
   const tourListByName = nameTours?.map((item) =>
-    tourArray.filter((el) => el.nameTour === item)
+    search === ""
+      ? tourArray.filter((el) => el.nameTour === item)
+      : tours.filter((el) => el.nameTour === item)
   );
 
-  const data = tourListByName.map((item, i) => ({
+  const data = tourListByName?.map((item, i) => ({
     nameTour: nameTours[i],
     status: item?.filter((el) => el?.status)?.length,
     numberOder: item?.map((el) => el?.numberOder)?.reduce((acc, e) => acc + e),
@@ -60,6 +63,19 @@ const TourList = () => {
       ?.map((el) => el?.numberpeople)
       ?.reduce((acc, e) => acc + e),
   }));
+
+  const onSearch = debounce((value) => {
+    const arr = tourArray?.filter((item) =>
+      value
+        ? item?.nameTour
+            .toLowerCase()
+            .trim()
+            .includes(value.toLowerCase().trim())
+        : item
+    );
+    setSearch(value);
+    setTours(arr);
+  }, 1000);
 
   const handleDetail = (nameTour) => {
     navigate(
@@ -195,7 +211,7 @@ const TourList = () => {
         >
           <Search
             placeholder="input search text"
-            onSearch={onSearch}
+            onChange={(e) => onSearch(e.target.value)}
             allowClear
             enterButton
           />

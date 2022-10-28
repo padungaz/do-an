@@ -7,11 +7,13 @@ import GlobalStyle from "./styles/globalStyle";
 import store from "./store";
 import theme from "./styles/theme";
 import Routing from "./routes";
+// import LoginPage from "./components/LoginPage";
 
 function App() {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
+        {/* <LoginPage /> */}
         <Routing />
         <GlobalStyle />
       </ThemeProvider>

@@ -25,17 +25,13 @@ const items = [
 function Products() {
   const navigate = useNavigate();
   const location = useLocation().pathname.split("/")[3];
-  console.log("first", location);
   const arr = (e) => {
-    console.log("click ", e.key);
     navigate(`${ROUTES_ADMIN.PAGE_MANAGEMENT}/${e.key}`);
   };
 
   return (
     <>
-      {" "}
       <Layout>
-        {/* <Header className="header"> */}
         <Menu
           onClick={arr}
           selectedKeys={[location]}
@@ -43,7 +39,6 @@ function Products() {
           items={items}
           defaultSelectedKeys={["tour"]}
         />
-        {/* </Header> */}
         <Content
           style={{
             padding: "10px 0",

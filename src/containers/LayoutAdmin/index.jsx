@@ -15,10 +15,7 @@ const LayoutAdmin = ({ children }) => {
   const location = useLocation().pathname.split("/")[2];
   const navigate = useNavigate();
 
-  console.log("loca", location);
-
   const arr = (e) => {
-    console.log("click ", e.key);
     e.key === "products"
       ? navigate(`${ROUTES_ADMIN.HOME}/${e.key}/tour-list`)
       : navigate(`${ROUTES_ADMIN.HOME}/${e.key}`);
