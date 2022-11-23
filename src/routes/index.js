@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ROUTES, ROUTES_ADMIN, ROUTES_USER } from "./constants";
+import { ROUTES, ROUTES_ADMIN } from "./constants";
 
 import OverViewPage from "../components/admin/OverViewPage";
 import LayoutAdmin from "../containers/LayoutAdmin";
@@ -8,12 +8,14 @@ import Products from "../components/admin/Products";
 import AddTour from "../components/AddTour";
 import CustomerManagement from "../components/admin/CustomerManagement";
 import OderDetails from "../components/admin/OderDetails";
+import LoginPage from "../components/LoginPage";
 
 const Routing = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {/* <Route path={ROUTES_ADMIN.HOME} element={<LayoutAdmin />} /> */}
+        <Route path={ROUTES.LOGIN} element={<LoginPage />} />
+
         <Route
           path={ROUTES_ADMIN.OVERVIEW_PAGE}
           element={<LayoutAdmin>{<OverViewPage />}</LayoutAdmin>}

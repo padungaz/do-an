@@ -171,8 +171,24 @@ const OderDetails = () => {
       dataIndex: "address",
       key: "address",
       ...getColumnSearchProps("address"),
-      sorter: (a, b) => a.address.length - b.address.length,
-      sortDirections: ["descend", "ascend"],
+    },
+    {
+      title: "số lượng đặt",
+      dataIndex: "numberOder",
+      key: "numberOder",
+      ...getColumnSearchProps("ratnumberOdering"),
+    },
+    {
+      title: "rating",
+      dataIndex: "rating",
+      key: "rating",
+      ...getColumnSearchProps("rating"),
+    },
+    {
+      title: "số lượng khách",
+      dataIndex: "numberpeople",
+      key: "numberpeople",
+      ...getColumnSearchProps("numberpeople"),
     },
   ];
 

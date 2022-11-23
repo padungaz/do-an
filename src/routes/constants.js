@@ -1,6 +1,5 @@
 const preRoute = "";
 const preAdmin = "/admin";
-const preUser = "/user";
 
 export const ROUTES = {
   HOME: "/",

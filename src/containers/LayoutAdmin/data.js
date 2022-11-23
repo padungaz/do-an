@@ -1,12 +1,11 @@
 import {
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
   UploadOutlined,
   UserOutlined,
   VideoCameraOutlined,
   AppstoreOutlined,
   MailOutlined,
   SettingOutlined,
+  LogoutOutlined,
 } from "@ant-design/icons";
 
 export const items = [
@@ -29,5 +28,10 @@ export const items = [
     label: "Thêm Tour",
     key: "add",
     icon: <SettingOutlined />,
+  },
+  {
+    label: "Đăng xuất",
+    key: "log-out",
+    icon: <LogoutOutlined />,
   },
 ];

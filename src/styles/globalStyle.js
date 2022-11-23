@@ -212,48 +212,6 @@ const base = css`
       fill: #ee9416 !important;
     }
   }
-
-  .ant-table-thead > tr > th {
-    position: relative;
-    color: rgba(0, 0, 0, 0.85);
-    font-weight: 500;
-    text-align: left;
-    background: #ee9416;
-    border-bottom: 1px solid #f0f0f0;
-  }
-
-  .table-row-dark {
-    background-color: #f8f8f87d;
-  }
-
-  .ant-table-thead
-    > tr
-    > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan]):before {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    width: 1px;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.06);
-    transform: translateY(-50%);
-    transition: background-color 0.3s;
-    content: "";
-  }
-
-  .ant-table table {
-    width: 100%;
-    text-align: left;
-    border-radius: 8px 8px 0 0;
-    border-left: 1px solid #f0f0f0;
-    border-collapse: separate;
-    border-spacing: 0;
-  }
-
-  .ant-table-tbody > tr > td {
-    border-bottom: 1px solid #f0f0f0;
-    border-right: 1px solid #f0f0f0;
-    transition: background 0.3s;
-  }
 `;
 
 const scrollApp = css`

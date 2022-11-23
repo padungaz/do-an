@@ -1,24 +1,45 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 import { Avatar, Menu } from "antd";
 
 import { useLocation, useNavigate } from "react-router-dom";
-import { ROUTES_ADMIN } from "../../routes/constants";
+import { ROUTES, ROUTES_ADMIN } from "../../routes/constants";
 
 import { items } from "./data";
 
 import * as S from "./styled";
+import { checkLogin, logout } from "../../components/Auth";
+import { useDispatch } from "react-redux";
 
 const LayoutAdmin = ({ children }) => {
   const [collapsed, setCollapsed] = useState(false);
-  const location = useLocation().pathname.split("/")[2];
+  const locations = useLocation().pathname;
+  const location = locations.split("/")[2];
+
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  console.log("locations", locations);
+  useEffect(() => {
+    if (checkLogin) {
+      checkLogin.isAdmin === true
+        ? navigate(locations)
+        : navigate(ROUTES_ADMIN.ODER_MANAGEMENT);
+    } else {
+      navigate(ROUTES.LOGIN);
+    }
+    // dispatch(fetchAccount());
+  }, [dispatch, navigate]);
 
   const arr = (e) => {
-    e.key === "products"
-      ? navigate(`${ROUTES_ADMIN.HOME}/${e.key}/tour-list`)
-      : navigate(`${ROUTES_ADMIN.HOME}/${e.key}`);
+    if (e.key === "log-out") {
+      logout();
+      navigate(ROUTES.LOGIN);
+    } else {
+      e.key === "products"
+        ? navigate(`${ROUTES_ADMIN.HOME}/${e.key}/tour-list`)
+        : navigate(`${ROUTES_ADMIN.HOME}/${e.key}`);
+    }
   };
 
   return (

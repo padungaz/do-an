@@ -1,34 +1,44 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { URL } from "../../../constants";
+import { URL_tOUR } from "../../../constants";
 
-export const fetchTour = createAsyncThunk("tour/fetchTour", async (payload) => {
-  // console.log("fetchTour ~ payload", payload);
-  const res = await axios
-    .get(URL)
-    .then((result) => {
-      // console.log("fetchTour ~ result", result);
-      return result.data;
-    })
-    .catch((error) => {
-      // console.log("fetchTour ~ error", error);
-    });
-  return res;
-});
+// export const fetchTour = createAsyncThunk("tour/fetchTour", async (payload) => {
+//   const res = await axios
+//     .get(URL_tOUR)
+//     .then((result) => {
+//       return result.data;
+//     })
+//     .catch((error) => {});
+//   return res;
+// });
+
+export const fetchTour = createAsyncThunk(
+  "client/fetchTour",
+  async (params) => {
+    console.log("param", params);
+    const res = await axios
+      .get(
+        `${URL_tOUR}?_page=${params.page}&_limit=${params.per_page}&q=${
+          params?.name ? params?.name : ""
+        }`
+      )
+      .then((result) => {
+        return result.data;
+      })
+      .catch((error) => {});
+    return res;
+  }
+);
 
 export const addTour = createAsyncThunk(
   "tour/addTour",
   async (payload, store) => {
-    // console.log("addTour ~ payload", payload);
     const res = await axios
-      .post(URL, payload)
+      .post(URL_tOUR, payload)
       .then((result) => {
-        // console.log("addTour ~ result", result);
         store.dispatch(fetchTour());
       })
-      .catch((error) => {
-        // console.log("addTour ~ error", error);
-      });
+      .catch((error) => {});
     return res;
   }
 );

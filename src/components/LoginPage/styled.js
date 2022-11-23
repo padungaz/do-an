@@ -22,7 +22,7 @@ export const Header = styled.div`
   margin-bottom: 48px;
 `;
 
-export const Form = styled.form`
+export const Form = styled.div`
   width: 459px;
   background: #ffffff;
   box-shadow: 0px 41px 56px rgba(0, 18, 101, 0.12);

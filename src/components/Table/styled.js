@@ -41,6 +41,13 @@ export const WrapTable = styled.div`
   overflow: hidden;
   overflow-x: auto;
   border: 1px solid #d5d3d0;
+  width: 100%;
+`;
+
+export const Wrap = styled.div`
+  max-width: 100%;
+  width: 100%;
+  margin-top: 16px;
 `;
 
 export const Dflex = styled.div`
@@ -53,6 +60,12 @@ export const Dflex = styled.div`
       border-radius: 5px;
     }
   }
+
+  .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+    border-radius: 8px;
+  }
+
+  margin-bottom: 5px;
 `;
 
 export const Header = styled.div`

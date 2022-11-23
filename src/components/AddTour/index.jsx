@@ -135,7 +135,7 @@ const AddTour = ({ item }) => {
                 },
               ]}
             >
-              <Input defaultValue="Ant Design love you!" />
+              <Input />
             </Form.Item>
 
             <Form.Item
