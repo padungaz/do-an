@@ -32,7 +32,6 @@ const PaymentMethods = () => {
   const dispatch = useDispatch();
 
   const onFinish = (values) => {
-    console.log(values);
     dispatch(paymentEdit(values));
   };
 

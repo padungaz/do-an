@@ -40,10 +40,8 @@ const OderDetails = () => {
 
   const dataTour = tourArray?.filter((item) => item?.nameTour === name);
 
-  // console.log("datas", datas);
-  // console.log("dataTour", dataTour);
+
   const arr = (record) => {
-    console.log("aaaa", record);
     setShow("");
     setValue(record);
   };

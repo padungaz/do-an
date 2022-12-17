@@ -4,11 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchTour } from "../../../store/admin/tourSlice";
 import Breadcrumb from "../../Breadcrumb";
 import { ROUTES_ADMIN } from "../../../routes/constants";
-import AddTour from "../../AddTour";
 import Table from "../../Table";
 import { sizeOptions } from "../../../constants";
 
 import "./style.scss";
+import ShowDetails from "../../ShowDetail";
+import { generatePath, useNavigate } from "react-router-dom";
 
 const breadcrumbs = [
   { content: "Quản lý tour", link: "" },
@@ -26,19 +27,26 @@ const AllTourList = () => {
   const [showFilter, setShowFilter] = useState(false);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const filters = {
       per_page: perPage,
       page,
     };
-
     if (nameSearch) filters.name = nameSearch;
-
     dispatch(fetchTour(filters));
   }, [dispatch, page, perPage, nameSearch]);
 
   const data = useSelector((state) => state.tourReducer.tours);
+
+  const handleDetail = (nameTour) => {
+    navigate(
+      generatePath(ROUTES_ADMIN.TOUR_DETAIL, {
+        name: nameTour,
+      })
+    );
+  };
 
   const arr = (record) => {
     setShow("");
@@ -104,8 +112,8 @@ const AllTourList = () => {
           <Table
             columns={columns}
             data={data}
-            title="TẤT CẢ NHÂN VIÊN"
-            placeholder="Tìm nhân viên"
+            title="TÌm KIẾM"
+            placeholder="search..."
             set_per_page={setPerPage}
             per_page={perPage}
             set_page={setPage}
@@ -118,7 +126,7 @@ const AllTourList = () => {
               minWidth: "100vw",
             }}
           />
-          <div
+          {/* <div
             className="bbbbb"
             style={{
               display: `${show}`,
@@ -132,7 +140,53 @@ const AllTourList = () => {
                 <AddTour item={value} />
               </div>
             </div>
-          </div>
+          </div> */}
+          <ShowDetails
+            style={{ position: "sticky", top: 0 }}
+            show={show}
+            handleDetail={handleDetail}
+            value={value}
+            setShow={() => setShow("none")}
+            perPage={perPage}
+            page={page}
+          >
+            <div
+              style={{
+                height: "100px",
+              }}
+            >
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+            </div>
+          </ShowDetails>
         </div>
       </div>
     </>

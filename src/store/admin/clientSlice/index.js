@@ -1,17 +1,16 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { URL_CLIENT } from "../../../constants";
-import { getListClientApi } from "../../../services/apis/admin/client";
+// import { getListClientApi } from "../../../services/apis/admin/client";
 
 export const fetchClient = createAsyncThunk(
   "client/fetchClient",
   async (params) => {
-    console.log("param", params);
     const res = await axios
       .get(
-        `${URL_CLIENT}?_page=${params.page}&_limit=${params.per_page}&q=${
-          params?.name ? params?.name : ""
-        }`
+        `${URL_CLIENT}?_page=${params.page}&_limit=${
+          params.per_page
+        }&nameTour_like=${params?.name ? params?.name.trim() : ""}`
       )
       .then((result) => {
         return result.data;
@@ -28,7 +27,7 @@ export const fetchClient = createAsyncThunk(
 //       const response = await getListClientApi(params);
 //       return response?.data;
 //     } catch (error) {
-//       return console.log("error");
+
 //     }
 //   }
 // );
@@ -43,7 +42,6 @@ const clientSlice = createSlice({
       .addCase(fetchClient.pending, (state, action) => {})
       .addCase(fetchClient.fulfilled, (state, action) => {
         state.clients = action?.payload;
-        console.log("action", action);
       })
       .addCase(fetchClient.rejected, (state, action) => {});
   },

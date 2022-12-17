@@ -174,7 +174,6 @@ const Booking = () => {
   const [value, setValue] = useState("");
 
   const arr = (record) => {
-    console.log("aaaa", record);
     setShow("");
     setValue(record);
   };

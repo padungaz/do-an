@@ -17,7 +17,7 @@ import {
 } from "antd";
 import { useEffect } from "react";
 import Breadcrumb from "../Breadcrumb";
-import { addTour, fetchTour } from "../../store/admin/tourSlice";
+import { addTour, editTour, fetchTourAll } from "../../store/admin/tourSlice";
 
 import "./style.scss";
 
@@ -34,6 +34,29 @@ const disabledDate = (current) => {
 };
 
 const { Option } = Select;
+
+const options = [
+  {
+    label: "Apple",
+    value: "Apple",
+  },
+  {
+    label: "Pear",
+    value: "Pear",
+  },
+  {
+    label: "a",
+    value: "a",
+  },
+  {
+    label: "b",
+    value: "b",
+  },
+  {
+    label: "c",
+    value: "c",
+  },
+];
 const formItemLayout = {
   labelCol: {
     span: 6,
@@ -52,14 +75,16 @@ const normFile = (e) => {
   return e?.fileList;
 };
 
-const AddTour = ({ item }) => {
+const AddTour = ({ item, onCancel, edit, page, perPage }) => {
   const dispatch = useDispatch();
 
+  // console.log("edit", edit);
+
   useEffect(() => {
-    dispatch(fetchTour());
+    dispatch(fetchTourAll());
   }, [dispatch]);
 
-  const tourArray = useSelector((state) => state.tourReducer.tours);
+  const tourArray = useSelector((state) => state.tourReducer.data);
 
   const rangeConfig = {
     rules: [
@@ -98,25 +123,36 @@ const AddTour = ({ item }) => {
       longTime:
         (moment(rangeValue[1])._d - moment(rangeValue[0])._d) / 86400000,
     };
+
+    const filters = {
+      per_page: perPage,
+      page,
+    };
+
     const arr = {
       nameTour: dataSubmit.nameTour,
       address: dataSubmit.address,
       from: dataSubmit.from,
     };
 
-    const value = tourArray.map((item) => ({
-      nameTour: item.nameTour,
-      address: item.address,
-      from: item.from,
+    const value = tourArray?.map((item) => ({
+      nameTour: item?.nameTour,
+      address: item?.address,
+      from: item?.from,
     }));
 
     const isSucceed = value.find(
-      (item) => JSON.stringify(item) === JSON.stringify(arr)
+      (item) => JSON?.stringify(item) === JSON?.stringify(arr)
     );
+
     if (isSucceed) {
-      console.log("co");
+      console.log("false");
     } else {
-      dispatch(addTour(dataSubmit));
+      edit?.value.length === 0
+        ? dispatch(addTour(dataSubmit))
+        : dispatch(editTour({ ...dataSubmit, id: edit?.value?.id, filters }));
+      console.log("true");
+      // onCancel();
     }
   };
 
@@ -125,7 +161,12 @@ const AddTour = ({ item }) => {
       <div className="wraper">
         {item ? null : <Breadcrumb breadcrumbs={breadcrumbs} />}
         <div className="form">
-          <Form name="validate_other" {...formItemLayout} onFinish={onFinish}>
+          <Form
+            name="validate_other"
+            {...formItemLayout}
+            onFinish={onFinish}
+            initialValues={edit?.value}
+          >
             <Form.Item
               name="nameTour"
               label="tên tour"
@@ -219,8 +260,8 @@ const AddTour = ({ item }) => {
             </Form.Item>
 
             <Form.Item name="service" label="dịch vụ đi kèm">
-              <Checkbox.Group>
-                <Row>
+              <Checkbox.Group options={options}>
+                {/* <Row>
                   <Col span={8}>
                     <Checkbox value="A">A</Checkbox>
                   </Col>
@@ -239,7 +280,7 @@ const AddTour = ({ item }) => {
                   <Col span={8}>
                     <Checkbox value="F">F</Checkbox>
                   </Col>
-                </Row>
+                </Row> */}
               </Checkbox.Group>
             </Form.Item>
 

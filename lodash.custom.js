@@ -7,24 +7,23 @@
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
  * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
  */
-;(function() {
-
+(function () {
   /** Used as a safe reference for `undefined` in pre-ES5 environments. */
   var undefined;
 
   /** Used as the semantic version number. */
-  var VERSION = '4.17.5';
+  var VERSION = "4.17.5";
 
   /** Error message constants. */
-  var FUNC_ERROR_TEXT = 'Expected a function';
+  var FUNC_ERROR_TEXT = "Expected a function";
 
   /** Used as references for various `Number` constants. */
   var NAN = 0 / 0;
 
   /** `Object#toString` result references. */
-  var nullTag = '[object Null]',
-      symbolTag = '[object Symbol]',
-      undefinedTag = '[object Undefined]';
+  var nullTag = "[object Null]",
+    symbolTag = "[object Symbol]",
+    undefinedTag = "[object Undefined]";
 
   /** Used to match leading and trailing whitespace. */
   var reTrim = /^\s+|\s+$/g;
@@ -42,19 +41,27 @@
   var freeParseInt = parseInt;
 
   /** Detect free variable `global` from Node.js. */
-  var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
+  var freeGlobal =
+    typeof global == "object" && global && global.Object === Object && global;
 
   /** Detect free variable `self`. */
-  var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
+  var freeSelf =
+    typeof self == "object" && self && self.Object === Object && self;
 
   /** Used as a reference to the global object. */
-  var root = freeGlobal || freeSelf || Function('return this')();
+  var root = freeGlobal || freeSelf || Function("return this")();
 
   /** Detect free variable `exports`. */
-  var freeExports = typeof exports == 'object' && exports && !exports.nodeType && exports;
+  var freeExports =
+    typeof exports == "object" && exports && !exports.nodeType && exports;
 
   /** Detect free variable `module`. */
-  var freeModule = freeExports && typeof module == 'object' && module && !module.nodeType && module;
+  var freeModule =
+    freeExports &&
+    typeof module == "object" &&
+    module &&
+    !module.nodeType &&
+    module;
 
   /*--------------------------------------------------------------------------*/
 
@@ -73,11 +80,11 @@
 
   /** Built-in value references. */
   var Symbol = root.Symbol,
-      symToStringTag = Symbol ? Symbol.toStringTag : undefined;
+    symToStringTag = Symbol ? Symbol.toStringTag : undefined;
 
   /* Built-in method references for those with the same name as other `lodash` methods. */
   var nativeMax = Math.max,
-      nativeMin = Math.min;
+    nativeMin = Math.min;
 
   /** Used to lookup unminified function names. */
   var realNames = {};
@@ -218,7 +225,7 @@
     if (value == null) {
       return value === undefined ? undefinedTag : nullTag;
     }
-    return (symToStringTag && symToStringTag in Object(value))
+    return symToStringTag && symToStringTag in Object(value)
       ? getRawTag(value)
       : objectToString(value);
   }
@@ -232,7 +239,7 @@
    */
   function getRawTag(value) {
     var isOwn = hasOwnProperty.call(value, symToStringTag),
-        tag = value[symToStringTag];
+      tag = value[symToStringTag];
 
     try {
       value[symToStringTag] = undefined;
@@ -279,7 +286,7 @@
    * }, _.now());
    * // => Logs the number of milliseconds it took for the deferred invocation.
    */
-  var now = function() {
+  var now = function () {
     return root.Date.now();
   };
 
@@ -341,30 +348,32 @@
    */
   function debounce(func, wait, options) {
     var lastArgs,
-        lastThis,
-        maxWait,
-        result,
-        timerId,
-        lastCallTime,
-        lastInvokeTime = 0,
-        leading = false,
-        maxing = false,
-        trailing = true;
+      lastThis,
+      maxWait,
+      result,
+      timerId,
+      lastCallTime,
+      lastInvokeTime = 0,
+      leading = false,
+      maxing = false,
+      trailing = true;
 
-    if (typeof func != 'function') {
+    if (typeof func != "function") {
       throw new TypeError(FUNC_ERROR_TEXT);
     }
     wait = toNumber(wait) || 0;
     if (isObject(options)) {
       leading = !!options.leading;
-      maxing = 'maxWait' in options;
-      maxWait = maxing ? nativeMax(toNumber(options.maxWait) || 0, wait) : maxWait;
-      trailing = 'trailing' in options ? !!options.trailing : trailing;
+      maxing = "maxWait" in options;
+      maxWait = maxing
+        ? nativeMax(toNumber(options.maxWait) || 0, wait)
+        : maxWait;
+      trailing = "trailing" in options ? !!options.trailing : trailing;
     }
 
     function invokeFunc(time) {
       var args = lastArgs,
-          thisArg = lastThis;
+        thisArg = lastThis;
 
       lastArgs = lastThis = undefined;
       lastInvokeTime = time;
@@ -383,8 +392,8 @@
 
     function remainingWait(time) {
       var timeSinceLastCall = time - lastCallTime,
-          timeSinceLastInvoke = time - lastInvokeTime,
-          timeWaiting = wait - timeSinceLastCall;
+        timeSinceLastInvoke = time - lastInvokeTime,
+        timeWaiting = wait - timeSinceLastCall;
 
       return maxing
         ? nativeMin(timeWaiting, maxWait - timeSinceLastInvoke)
@@ -393,13 +402,17 @@
 
     function shouldInvoke(time) {
       var timeSinceLastCall = time - lastCallTime,
-          timeSinceLastInvoke = time - lastInvokeTime;
+        timeSinceLastInvoke = time - lastInvokeTime;
 
       // Either this is the first call, activity has stopped and we're at the
       // trailing edge, the system time has gone backwards and we're treating
       // it as the trailing edge, or we've hit the `maxWait` limit.
-      return (lastCallTime === undefined || (timeSinceLastCall >= wait) ||
-        (timeSinceLastCall < 0) || (maxing && timeSinceLastInvoke >= maxWait));
+      return (
+        lastCallTime === undefined ||
+        timeSinceLastCall >= wait ||
+        timeSinceLastCall < 0 ||
+        (maxing && timeSinceLastInvoke >= maxWait)
+      );
     }
 
     function timerExpired() {
@@ -437,7 +450,7 @@
 
     function debounced() {
       var time = now(),
-          isInvoking = shouldInvoke(time);
+        isInvoking = shouldInvoke(time);
 
       lastArgs = arguments;
       lastThis = this;
@@ -509,19 +522,19 @@
    */
   function throttle(func, wait, options) {
     var leading = true,
-        trailing = true;
+      trailing = true;
 
-    if (typeof func != 'function') {
+    if (typeof func != "function") {
       throw new TypeError(FUNC_ERROR_TEXT);
     }
     if (isObject(options)) {
-      leading = 'leading' in options ? !!options.leading : leading;
-      trailing = 'trailing' in options ? !!options.trailing : trailing;
+      leading = "leading" in options ? !!options.leading : leading;
+      trailing = "trailing" in options ? !!options.trailing : trailing;
     }
     return debounce(func, wait, {
-      'leading': leading,
-      'maxWait': wait,
-      'trailing': trailing
+      leading: leading,
+      maxWait: wait,
+      trailing: trailing,
     });
   }
 
@@ -554,7 +567,7 @@
    */
   function isObject(value) {
     var type = typeof value;
-    return value != null && (type == 'object' || type == 'function');
+    return value != null && (type == "object" || type == "function");
   }
 
   /**
@@ -582,7 +595,7 @@
    * // => false
    */
   function isObjectLike(value) {
-    return value != null && typeof value == 'object';
+    return value != null && typeof value == "object";
   }
 
   /**
@@ -603,8 +616,10 @@
    * // => false
    */
   function isSymbol(value) {
-    return typeof value == 'symbol' ||
-      (isObjectLike(value) && baseGetTag(value) == symbolTag);
+    return (
+      typeof value == "symbol" ||
+      (isObjectLike(value) && baseGetTag(value) == symbolTag)
+    );
   }
 
   /**
@@ -631,24 +646,26 @@
    * // => 3.2
    */
   function toNumber(value) {
-    if (typeof value == 'number') {
+    if (typeof value == "number") {
       return value;
     }
     if (isSymbol(value)) {
       return NAN;
     }
     if (isObject(value)) {
-      var other = typeof value.valueOf == 'function' ? value.valueOf() : value;
-      value = isObject(other) ? (other + '') : other;
+      var other = typeof value.valueOf == "function" ? value.valueOf() : value;
+      value = isObject(other) ? other + "" : other;
     }
-    if (typeof value != 'string') {
+    if (typeof value != "string") {
       return value === 0 ? value : +value;
     }
-    value = value.replace(reTrim, '');
+    value = value.replace(reTrim, "");
     var isBinary = reIsBinary.test(value);
-    return (isBinary || reIsOctal.test(value))
+    return isBinary || reIsOctal.test(value)
       ? freeParseInt(value.slice(2), isBinary ? 2 : 8)
-      : (reIsBadHex.test(value) ? NAN : +value);
+      : reIsBadHex.test(value)
+      ? NAN
+      : +value;
   }
 
   /*------------------------------------------------------------------------*/
@@ -680,7 +697,11 @@
   /*--------------------------------------------------------------------------*/
 
   // Some AMD build optimizers, like r.js, check for condition patterns like:
-  if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) {
+  if (
+    typeof define == "function" &&
+    typeof define.amd == "object" &&
+    define.amd
+  ) {
     // Expose Lodash on the global object to prevent errors when Lodash is
     // loaded by a script tag in the presence of an AMD loader.
     // See http://requirejs.org/docs/errors.html#mismatch for more details.
@@ -689,7 +710,7 @@
 
     // Define as an anonymous module so, through path mapping, it can be
     // referenced as the "underscore" module.
-    define(function() {
+    define(function () {
       return lodash;
     });
   }
@@ -699,8 +720,7 @@
     (freeModule.exports = lodash)._ = lodash;
     // Export for CommonJS support.
     freeExports._ = lodash;
-  }
-  else {
+  } else {
     // Export to the global object.
     root._ = lodash;
   }

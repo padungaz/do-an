@@ -254,8 +254,8 @@ const TourList = () => {
           <Table
             columns={columns}
             data={data}
-            title="TẤT CẢ NHÂN VIÊN"
-            placeholder="Tìm nhân viên"
+            title="TÌm KIẾM"
+            placeholder="search..."
             set_per_page={setPerPage}
             per_page={perPage}
             set_page={setPage}
@@ -292,13 +292,44 @@ const TourList = () => {
               </button>
             </div>
           </div> */}
-          <ShowDetails show={show} handleDetail={handleDetail} value={value}>
-            <div>
-              <div>
-                <button onClick={() => setShow("none")}>x</button>
-                <button>edit</button>
-              </div>
-
+          <ShowDetails
+            show={show}
+            handleDetail={handleDetail}
+            value={value.nameTour}
+            setShow={() => setShow("none")}
+          >
+            <div
+              style={{
+                height: "100px",
+              }}
+            >
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
+              <p>{value.nameTour}</p>
               <p>{value.nameTour}</p>
               <p>{value.nameTour}</p>
               <p>{value.nameTour}</p>

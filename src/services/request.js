@@ -19,7 +19,6 @@ const request = ({
   ...options
 }) => {
   const onSuccess = (response) => {
-    console.log("response: ", response);
     return response;
   };
 

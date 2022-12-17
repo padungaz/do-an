@@ -48,6 +48,7 @@ export const Wrap = styled.div`
   max-width: 100%;
   width: 100%;
   margin-top: 16px;
+  height: auto;
 `;
 
 export const Dflex = styled.div`

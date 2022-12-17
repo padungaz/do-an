@@ -26,14 +26,14 @@ const CustomerManagement = () => {
   const [page, setPage] = useState(1);
   const [nameSearch, setNameSearch] = useState(null);
 
-  console.log("perPage", perPage);
+
 
   const dispatch = useDispatch();
 
   const clients = useSelector((state) => state.clientReducer.clients);
 
   const arr = (record) => {
-    console.log("aaa", record);
+
     setShow("");
     setValue(record);
   };
@@ -74,8 +74,8 @@ const CustomerManagement = () => {
           <Table
             columns={columns}
             data={clients}
-            title="TẤT CẢ NHÂN VIÊN"
-            placeholder="Tìm nhân viên"
+            title="TÌm KIẾM"
+            placeholder="search..."
             set_per_page={setPerPage}
             per_page={perPage}
             set_page={setPage}

@@ -1,5 +1,4 @@
 export const login = (email, password, listUser, callback = null) => {
-  console.log("listUser", listUser);
   const pattern = new RegExp(email, "i");
   const isSucceed = listUser.find(
     (item) => pattern.test(item.email) && item.password === password
