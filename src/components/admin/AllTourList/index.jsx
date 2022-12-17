@@ -95,25 +95,12 @@ const AllTourList = () => {
     <>
       <div className="wraper">
         <Breadcrumb breadcrumbs={breadcrumbs} />
-        {/* <Space
-          style={{
-            marginBottom: 16,
-            marginTop: 16,
-          }}
-        >
-          <Search
-            placeholder="Nhập tên tour"
-            onChange={(e) => onSearch(e.target.value)}
-            allowClear
-            enterButton
-          />
-        </Space> */}
         <div className="aaa">
           <Table
             columns={columns}
             data={data}
             title="TÌm KIẾM"
-            placeholder="search..."
+            placeholder="search...."
             set_per_page={setPerPage}
             per_page={perPage}
             set_page={setPage}
