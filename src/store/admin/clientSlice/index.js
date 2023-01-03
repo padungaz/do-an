@@ -20,6 +20,21 @@ export const fetchClient = createAsyncThunk(
   }
 );
 
+export const fetchClientDetails = createAsyncThunk(
+  "clientsDetails/fetchClientDetails",
+  async (params) => {
+    console.log("param-clientsDetails", params);
+    const res = await axios
+      .get(`${URL_CLIENT}?nameTour=${params}`)
+      .then((result) => {
+        console.log("clientsDetails", result);
+        return result?.data;
+      })
+      .catch((error) => {});
+    return res;
+  }
+);
+
 // export const fetchClient = createAsyncThunk(
 //   "client/fetchClient",
 //   async (params) => {
@@ -34,7 +49,7 @@ export const fetchClient = createAsyncThunk(
 
 const clientSlice = createSlice({
   name: "client",
-  initialState: { clients: [] },
+  initialState: { clients: [], clientsDetails: [] },
   reducers: {},
 
   extraReducers(builder) {
@@ -43,7 +58,14 @@ const clientSlice = createSlice({
       .addCase(fetchClient.fulfilled, (state, action) => {
         state.clients = action?.payload;
       })
-      .addCase(fetchClient.rejected, (state, action) => {});
+      .addCase(fetchClient.rejected, (state, action) => {})
+
+      .addCase(fetchClientDetails.pending, (state, action) => {})
+      .addCase(fetchClientDetails.fulfilled, (state, action) => {
+        console.log("fetchClientDetails", { state, action });
+        state.clientsDetails = action?.payload;
+      })
+      .addCase(fetchClientDetails.rejected, (state, action) => {});
   },
 });
 

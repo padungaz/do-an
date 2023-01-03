@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { fetchTour } from "../../../store/admin/tourSlice";
+import { fetchTour, fetchTourDetail } from "../../../store/admin/tourSlice";
 import Breadcrumb from "../../Breadcrumb";
 import { ROUTES_ADMIN } from "../../../routes/constants";
 import Table from "../../Table";
@@ -18,13 +18,13 @@ const breadcrumbs = [
 
 const AllTourList = () => {
   const [show, setShow] = useState("none");
-  const [value, setValue] = useState("");
+  // const [value, setValue] = useState("");
 
   const [perPage, setPerPage] = useState(sizeOptions[1].value);
   const [page, setPage] = useState(1);
   const [nameSearch, setNameSearch] = useState(null);
-
-  const [showFilter, setShowFilter] = useState(false);
+  const [id, setId] = useState(null);
+  // const [showFilter, setShowFilter] = useState(false);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -38,7 +38,18 @@ const AllTourList = () => {
     dispatch(fetchTour(filters));
   }, [dispatch, page, perPage, nameSearch]);
 
-  const data = useSelector((state) => state.tourReducer.tours);
+  // useEffect(() => {
+  //   dispatch(fetchTourDetail());
+  // }, [dispatch]);
+
+  useEffect(() => {
+    if (id) {
+      dispatch(fetchTourDetail(id));
+    }
+  }, [dispatch, id]);
+
+  const data = useSelector((state) => state?.tourReducer?.tours);
+  const detail = useSelector((state) => state?.tourReducer?.details);
 
   const handleDetail = (nameTour) => {
     navigate(
@@ -50,7 +61,8 @@ const AllTourList = () => {
 
   const arr = (record) => {
     setShow("");
-    setValue(record);
+    setId(record?.id);
+    // setValue(record);
   };
 
   const columns = [
@@ -105,7 +117,7 @@ const AllTourList = () => {
             per_page={perPage}
             set_page={setPage}
             page={page}
-            set_filter={setShowFilter}
+            // set_filter={setShowFilter}
             total={50}
             arr={arr}
             set_subject={setNameSearch}
@@ -132,7 +144,7 @@ const AllTourList = () => {
             style={{ position: "sticky", top: 0 }}
             show={show}
             handleDetail={handleDetail}
-            value={value}
+            value={detail}
             setShow={() => setShow("none")}
             perPage={perPage}
             page={page}
@@ -142,36 +154,36 @@ const AllTourList = () => {
                 height: "100px",
               }}
             >
-              <p>{value.nameTour}</p>
-              <p>{value.nameTour}</p>
-              <p>{value.nameTour}</p>
-              <p>{value.nameTour}</p>
-              <p>{value.nameTour}</p>
-              <p>{value.nameTour}</p>
-              <p>{value.nameTour}</p>
-              <p>{value.nameTour}</p>
-              <p>{value.nameTour}</p>
-              <p>{value.nameTour}</p>
-              <p>{value.nameTour}</p>
-              <p>{value.nameTour}</p>
-              <p>{value.nameTour}</p>
-              <p>{value.nameTour}</p>
-              <p>{value.nameTour}</p>
-              <p>{value.nameTour}</p>
-              <p>{value.nameTour}</p>
-              <p>{value.nameTour}</p>
-              <p>{value.nameTour}</p>
-              <p>{value.nameTour}</p>
-              <p>{value.nameTour}</p>
-              <p>{value.nameTour}</p>
-              <p>{value.nameTour}</p>
-              <p>{value.nameTour}</p>
-              <p>{value.nameTour}</p>
-              <p>{value.nameTour}</p>
-              <p>{value.nameTour}</p>
-              <p>{value.nameTour}</p>
-              <p>{value.nameTour}</p>
-              <p>{value.nameTour}</p>
+              <p>{detail?.nameTour}</p>
+              <p>{detail?.nameTour}</p>
+              <p>{detail?.nameTour}</p>
+              <p>{detail?.nameTour}</p>
+              <p>{detail?.nameTour}</p>
+              <p>{detail?.nameTour}</p>
+              <p>{detail?.nameTour}</p>
+              <p>{detail?.nameTour}</p>
+              <p>{detail?.nameTour}</p>
+              <p>{detail?.nameTour}</p>
+              <p>{detail?.nameTour}</p>
+              <p>{detail?.nameTour}</p>
+              <p>{detail?.nameTour}</p>
+              <p>{detail?.nameTour}</p>
+              <p>{detail?.nameTour}</p>
+              <p>{detail?.nameTour}</p>
+              <p>{detail?.nameTour}</p>
+              <p>{detail?.nameTour}</p>
+              <p>{detail?.nameTour}</p>
+              <p>{detail?.nameTour}</p>
+              <p>{detail?.nameTour}</p>
+              <p>{detail?.nameTour}</p>
+              <p>{detail?.nameTour}</p>
+              <p>{detail?.nameTour}</p>
+              <p>{detail?.nameTour}</p>
+              <p>{detail?.nameTour}</p>
+              <p>{detail?.nameTour}</p>
+              <p>{detail?.nameTour}</p>
+              <p>{detail?.nameTour}</p>
+              <p>{detail?.nameTour}</p>
             </div>
           </ShowDetails>
         </div>

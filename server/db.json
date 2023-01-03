@@ -1328,10 +1328,10 @@
       "price": 1324536,
       "from": "HCM",
       "rangePicker": {
-        "startDate": "20/12/2022",
-        "endDate": "18/01/2023"
+        "startDate": "31/12/2022",
+        "endDate": "25/01/2023"
       },
-      "nameTour": "hoi an 2",
+      "nameTour": "Vịnh Hạ Long",
       "address": "hcm",
       "vehicle": [
         "máy bay"
@@ -1352,8 +1352,12 @@
       "userNumberRating": 0,
       "numberOder": 0,
       "numberpeople": 0,
-      "longTime": 29,
-      "id": 45
+      "longTime": 25,
+      "id": 45,
+      "filters": {
+        "per_page": 10,
+        "page": 2
+      }
     },
     {
       "price": 1324536,
@@ -1422,9 +1426,9 @@
       "from": "Hà Nội",
       "rangePicker": {
         "startDate": "24/12/2022",
-        "endDate": "27/01/2023"
+        "endDate": "19/01/2023"
       },
-      "nameTour": "sai gon",
+      "nameTour": "sai gon 1",
       "address": "Hà nội",
       "vehicle": [
         "máy bay"
@@ -1445,8 +1449,12 @@
       "userNumberRating": 0,
       "numberOder": 0,
       "numberpeople": 0,
-      "longTime": 34,
-      "id": 48
+      "longTime": 26,
+      "id": 48,
+      "filters": {
+        "per_page": 10,
+        "page": 2
+      }
     },
     {
       "price": 1324536,

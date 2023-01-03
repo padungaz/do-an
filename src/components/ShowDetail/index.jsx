@@ -54,7 +54,7 @@ export default function ShowDetails({
       <S.Content>{children}</S.Content>
 
       <S.Footer>
-        <button onClick={() => handleDetail(value)}> details </button>
+        <button onClick={() => handleDetail(value?.nameTour)}> details </button>
       </S.Footer>
     </S.Wrap>
   );
